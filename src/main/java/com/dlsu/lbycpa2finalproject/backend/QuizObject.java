@@ -27,7 +27,7 @@ public class QuizObject implements QuizInterface{
     @Override
     public QuestionObject getRandomQuestion() {
         Random rand = new Random();
-        int randIndex = rand.nextInt(numberQuestions);
+        int randIndex = rand.nextInt(numberQuestions - 1);
         QuestionObject nextQ = questions.get(randIndex);
         questions.remove(randIndex);
         return nextQ;

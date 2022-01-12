@@ -14,7 +14,7 @@ module com.dlsu.lbycpa2finalproject {
 
     opens com.dlsu.lbycpa2finalproject to javafx.fxml;
     opens com.dlsu.lbycpa2finalproject.backend to javafx.fxml;
-    opens com.dlsu.lbycpa2finalproject.frontend to javafx.fxml;
+    //opens com.dlsu.lbycpa2finalproject.frontend to javafx.fxml;
 
     exports com.dlsu.lbycpa2finalproject;
     exports com.dlsu.lbycpa2finalproject.backend;

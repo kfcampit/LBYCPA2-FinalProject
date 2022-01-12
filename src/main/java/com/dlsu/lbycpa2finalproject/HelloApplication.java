@@ -1,5 +1,7 @@
 package com.dlsu.lbycpa2finalproject;
 
+import com.dlsu.lbycpa2finalproject.backend.DatabaseController;
+import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,7 +19,12 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch();
+    public static void main(String[] args) throws Exception {
+        //launch();
+        DatabaseController dc = new DatabaseController();
+        QuizObject quizObject = dc.loadDatabase("sample-topic.csv");
+
+        System.out.println(quizObject.getRandomQuestion().getQuestion());
+        System.out.println(quizObject.getRandomQuestion().getQuestion());
     }
 }
