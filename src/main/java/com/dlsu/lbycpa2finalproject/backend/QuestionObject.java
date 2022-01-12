@@ -4,6 +4,7 @@ public class QuestionObject implements QuestionInterface{
     private String question;
     private String[] choices;
     private int answerIndex;
+    private int pointWeight;
 
 
     @Override
@@ -34,5 +35,15 @@ public class QuestionObject implements QuestionInterface{
     @Override
     public int getAnswer() {
         return answerIndex;
+    }
+
+    @Override
+    public void setPointWeight(int pointWeight) {
+        this.pointWeight = pointWeight;
+    }
+
+    @Override
+    public int getPointWeight() {
+        return pointWeight;
     }
 }

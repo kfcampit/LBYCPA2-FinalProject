@@ -9,4 +9,7 @@ public interface QuestionInterface {
 
     void setAnswer(int index);
     int getAnswer();
+
+    void setPointWeight(int pointWeight);
+    int getPointWeight();
 }
