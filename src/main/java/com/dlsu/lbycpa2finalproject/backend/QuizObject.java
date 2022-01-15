@@ -1,15 +1,27 @@
 package com.dlsu.lbycpa2finalproject.backend;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 public class QuizObject implements QuizInterface{
-    private LinkedList<QuestionObject> questions;
+    private String topic;
+    private List<QuestionObject> questions;
     private int numberQuestions;
     private int totalPoints;
 
     @Override
-    public void setQuestions(LinkedList<QuestionObject> questions) {
+    public String getTopic() {
+        return topic;
+    }
+
+    @Override
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    @Override
+    public void setQuestions(List<QuestionObject> questions) {
         this.questions = questions;
         numberQuestions = questions.size();
         totalPoints = 0;
@@ -19,8 +31,8 @@ public class QuizObject implements QuizInterface{
 
     @Override
     public QuestionObject getNextQuestion() {
-        QuestionObject nextQ = questions.getFirst();
-        questions.removeFirst();
+        QuestionObject nextQ = questions.get(0);
+        questions.remove(numberQuestions - 1);
         return nextQ;
     }
 
