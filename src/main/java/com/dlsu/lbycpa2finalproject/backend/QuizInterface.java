@@ -11,6 +11,7 @@ public interface QuizInterface {
     void setQuestions(List<QuestionObject> questions);
     QuestionObject getNextQuestion();
     QuestionObject getRandomQuestion();
+    List<QuestionObject> getQuestionList();
     int getNumberQuestions();
     int getTotalPoints();
 }

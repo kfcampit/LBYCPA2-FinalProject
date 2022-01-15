@@ -57,6 +57,11 @@ public class QuizObject implements QuizInterface{
     }
 
     @Override
+    public List<QuestionObject> getQuestionList() {
+        return questions;
+    }
+
+    @Override
     public int getNumberQuestions() {
         return numberQuestions;
     }

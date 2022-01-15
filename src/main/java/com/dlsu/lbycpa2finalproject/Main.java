@@ -27,8 +27,14 @@ public class Main extends Application {
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
         new FirebaseInitializer();
 
+        /*
         QuizController qc = new QuizController();       //Outputs:
         System.out.println(qc.getTopics());             //{0001-basic-math=Basic Mathematics, 0002-basic-physics=Basic Physics}
+
+        QuizObject quiz = qc.getQuiz("0001-basic-math");
+        quiz.setTopic("Basic Math");
+
+        qc.manageQuiz(quiz);
 
         QuizObject qo;
         qo = qc.getQuiz("0001-basic-math");
@@ -43,6 +49,8 @@ public class Main extends Application {
         System.out.println(nextQ.getChoices()[3]);      //Two
         System.out.println(nextQ.getAnswer());          //3 - Index of Correct Answer
         System.out.println(nextQ.getPointWeight());     //5 - Points for the question
+        */
+
 
         launch();
     }
