@@ -104,7 +104,7 @@ public class QuizController {
         db.collection("quizzes").document(quizID).delete();
     }
 
-    void deleteCollection(CollectionReference collection) {
+    private void deleteCollection(CollectionReference collection) {
         try {
             ApiFuture<QuerySnapshot> future = collection.get();
             List<QueryDocumentSnapshot> documents = future.get().getDocuments();
