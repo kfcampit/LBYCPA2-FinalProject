@@ -37,12 +37,11 @@ public class QuizController {
         String[] tempArray;
         QuestionObject temp;
 
-        // Gets the topic and id of the quiz
+        // Gets the topic of the quiz
         DocumentReference topicRef = db.collection("quizzes").document(id);
         ApiFuture<DocumentSnapshot> futureTopic = topicRef.get();
         DocumentSnapshot topic = futureTopic.get();
         quizObject.setTopic(topic.getString("topic"));
-        quizObject.setId(topic.getId());
 
         // Gets the questions and the contents of each question as a QuestionObject
         ApiFuture<QuerySnapshot> query = db.collection("quizzes").document(id).collection("questions").get();
@@ -61,17 +60,12 @@ public class QuizController {
             temp.setChoices(tempArray);
             temp.setAnswer(Math.toIntExact(question.getLong("answer")));
             temp.setPointWeight(Math.toIntExact(question.getLong("weight")));
-            temp.setImageURL(question.getString("imageURL"));
 
             questionObjects.add(temp);
         }
 
         quizObject.setQuestions(questionObjects);
         return quizObject;
-    }
-
-    public void addQuiz(QuizObject quiz) {
-
     }
 
 }

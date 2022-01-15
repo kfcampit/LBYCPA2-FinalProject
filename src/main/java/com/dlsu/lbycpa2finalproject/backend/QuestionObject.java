@@ -5,7 +5,6 @@ public class QuestionObject implements QuestionInterface{
     private String[] choices;
     private int answerIndex;
     private int pointWeight;
-    private String imageURL;
 
 
     @Override
@@ -46,15 +45,5 @@ public class QuestionObject implements QuestionInterface{
     @Override
     public int getPointWeight() {
         return pointWeight;
-    }
-
-    @Override
-    public void setImageURL(String url) {
-        imageURL = url;
-    }
-
-    @Override
-    public String getImageURL() {
-        return imageURL;
     }
 }

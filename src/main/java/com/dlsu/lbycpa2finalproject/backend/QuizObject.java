@@ -4,10 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class QuizObject implements QuizInterface {
-    private String id;
+public class QuizObject implements QuizInterface{
     private String topic;
-    private String imageURL;
     private List<QuestionObject> questions;
     private int numberQuestions;
     private int totalPoints;
@@ -23,16 +21,6 @@ public class QuizObject implements QuizInterface {
     }
 
     @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @Override
     public void setQuestions(List<QuestionObject> questions) {
         this.questions = questions;
         numberQuestions = questions.size();
@@ -44,7 +32,7 @@ public class QuizObject implements QuizInterface {
     @Override
     public QuestionObject getNextQuestion() {
         QuestionObject nextQ = questions.get(0);
-        questions.remove(0);
+        questions.remove(numberQuestions - 1);
         return nextQ;
     }
 

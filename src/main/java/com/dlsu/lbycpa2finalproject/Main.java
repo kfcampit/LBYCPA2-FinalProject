@@ -43,7 +43,6 @@ public class Main extends Application {
         System.out.println(nextQ.getChoices()[3]);      //Two
         System.out.println(nextQ.getAnswer());          //3 - Index of Correct Answer
         System.out.println(nextQ.getPointWeight());     //5 - Points for the question
-        System.out.println(nextQ.getImageURL());        //image
 
         //launch();
     }
