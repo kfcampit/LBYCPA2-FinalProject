@@ -22,7 +22,7 @@
 ## Cloud Firestore Structure
 
 
-### Sample Cloud Firestore structure:
+### Sample Cloud Firestore structure
 ```
 quizzes
     |- id: "0001-basic-math"
