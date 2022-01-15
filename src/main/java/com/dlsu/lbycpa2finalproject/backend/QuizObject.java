@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class QuizObject implements QuizInterface{
+    private String id;
     private String topic;
     private List<QuestionObject> questions;
     private int numberQuestions;
@@ -18,6 +19,16 @@ public class QuizObject implements QuizInterface{
     @Override
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    @Override
+    public String getID() {
+        return id;
+    }
+
+    @Override
+    public void setID(String id) {
+        this.id = id;
     }
 
     @Override

@@ -12,4 +12,7 @@ public interface QuestionInterface {
 
     void setPointWeight(int pointWeight);
     int getPointWeight();
+
+    void setImageURL(String url);
+    String getImageURL();
 }

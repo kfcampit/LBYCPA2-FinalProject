@@ -68,4 +68,8 @@ public class QuizController {
         return quizObject;
     }
 
+    private void manageQuiz(QuizObject quizObject) {
+        ApiFuture<WriteResult> writeResult = db.collection("quizzes").document(quizObject.getID()).delete();
+    }
+
 }
