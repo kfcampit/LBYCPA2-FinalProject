@@ -44,6 +44,6 @@ public class Main extends Application {
         System.out.println(nextQ.getAnswer());          //3 - Index of Correct Answer
         System.out.println(nextQ.getPointWeight());     //5 - Points for the question
 
-        //launch();
+        launch();
     }
 }
