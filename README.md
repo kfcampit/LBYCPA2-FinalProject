@@ -14,6 +14,6 @@
 
 ### Back-end
 
-- CSV Input and Output
+- Firebase Read and Write
 - Statistics
 - Custom Question Object
