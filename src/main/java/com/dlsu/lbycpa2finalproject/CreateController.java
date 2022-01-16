@@ -34,12 +34,12 @@ public class CreateController {
 
     @FXML
     void onClickBack(ActionEvent event) {
-
+        System.out.println("back");
     }
 
     @FXML
     void onClickSubmit(ActionEvent event) {
-
+        System.out.println("submit");
     }
 
 }
