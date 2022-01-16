@@ -22,7 +22,7 @@ public class Main extends Application {
     private static Scene s;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Leaderboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Main.fxml"));
         s = new Scene(fxmlLoader.load(), 643, 689);
         stage.setTitle("Welcome to Quiztify!");
         stage.setScene(s);
