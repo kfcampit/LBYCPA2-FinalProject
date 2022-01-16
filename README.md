@@ -152,5 +152,29 @@ public void removeQuiz(String quizID)
 //Sample Usage: removeQuiz("0001-basic-math");
 ```
 This command simply removes all contents of the quiz by deleting its collections and documents.
-#
 
+#
+## Using Cloud Image Hosting
+
+Make sure to instantiate the ImageContoller in the class to access the Cloudinary image hosting service.
+``` Java 8
+ImageController ic = new ImageController();
+```
+
+### Saving Images
+``` Java 8
+public void saveImage(String filename, String quizID)
+//Sample Usage: saveImage("q001.jpg", "0001-basic-math");
+```
+
+The saveImage command will upload the image to the Cloudinary image hosting platform under the folder of the quizID. The filename of the image must be the same as the question ID. The file type must also be a .jpg.
+
+### Getting Image URL
+``` Java 8
+public String loadImageURL(String filename, String quizID)
+/*
+Sample Usage: loadImageURL("q001.jpg", "0001-basic-math");
+Sample Output: http://res.cloudinary.com/de-la-salle-university-manila/image/upload/v1/0001-basic-math/q001.jpg
+*/
+```
+The loadImageURL command will access the image hosting library and retriev the indicated image based of its file name and quizID. The return value for the command is a String containing the URL of the image.
