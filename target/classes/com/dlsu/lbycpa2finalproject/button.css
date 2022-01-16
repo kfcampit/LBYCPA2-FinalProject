@@ -1,0 +1,46 @@
+.button {
+  -fx-background-color: #ECB365; /* Medyo Light Orange */
+  -fx-border: none;
+  -fx-border-radius: 10px;
+  -fx-color: white;
+  -fx-padding: 10px 20px 10px 20px;
+  -fx-text-fill: #041C32;
+  -fx-text-align: center;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-family: Verdana, sans-serif;
+  -fx-font-size: 16pt;
+  -fx-font-weight: normal;
+}
+
+.button:hover{
+  -fx-background-color: #4A47A3; /* Light Blue Ata */
+  -fx-border: none;
+  -fx-border-radius: 10px;
+  -fx-color: white;
+  -fx-padding: 10px 20px 10px 20px;
+  -fx-text-fill: #041C32;
+  -fx-text-align: center;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-family: Verdana, sans-serif;
+  -fx-text-fill: white;
+  -fx-font-size: 16pt;
+  -fx-font-weight: normal;
+}
+
+.button:pressed{
+  -fx-background-color: #04293A; /* Dark Blue */
+  -fx-border: none;
+  -fx-border-radius: 10px;
+  -fx-color: white;
+  -fx-padding: 10px 20px 10px 20px;
+  -fx-text-fill: #041C32;
+  -fx-text-align: center;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-family: Verdana, sans-serif;
+  -fx-text-fill: white;
+  -fx-font-size: 16pt;
+  -fx-font-weight: normal;
+}
