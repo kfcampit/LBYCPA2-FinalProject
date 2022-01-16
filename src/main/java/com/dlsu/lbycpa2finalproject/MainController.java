@@ -4,7 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class MainController {
+import java.io.IOException;
+
+public class MainController extends Main{
 
     @FXML
     private Button AddQuiz;
@@ -28,7 +30,8 @@ public class MainController {
 //        System.out.println("Leader");
     }
     @FXML
-    void onClickLoadQuiz(ActionEvent event) {
+    void onClickLoadQuiz(ActionEvent event) throws IOException {
 //        System.out.println("Load");
+        setRoot("Answer");
     }
 }

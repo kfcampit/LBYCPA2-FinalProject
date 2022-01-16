@@ -5,7 +5,9 @@ import com.dlsu.lbycpa2finalproject.backend.QuestionObject;
 import com.dlsu.lbycpa2finalproject.backend.QuizController;
 import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -13,15 +15,25 @@ import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 public class Main extends Application {
+    private static Scene s;
     @Override
     public void start(Stage stage) throws IOException {
-
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Main.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 643, 689);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
+        s = new Scene(fxmlLoader.load(), 643, 689);
+        stage.setTitle("Welcome to Quiztify!");
+        stage.setScene(s);
         stage.show();
+    }
 
+    public static void setRoot(String fxml) throws IOException{ /* Eto gagamitin pang-change scene */
+        s.setRoot(loadFXML(fxml));
+    }
+    public static void closeRoot() throws IOException { /* Para magclose yung window */
+        Platform.exit();
+    }
+    private static Parent loadFXML(String fxml) throws IOException{ /* Eto magl-load ng fxml para mabuksan */
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
     }
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {

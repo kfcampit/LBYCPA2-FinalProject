@@ -75,6 +75,10 @@
             <Font name="BebasNeue" size="21.0" />
          </font>
       </Button>
-      <Label fx:id="userQuestion" layoutX="26.0" layoutY="184.0" prefHeight="252.0" prefWidth="591.0" textAlignment="CENTER" />
+      <Label fx:id="userQuestion" layoutX="26.0" layoutY="184.0" prefHeight="252.0" prefWidth="591.0" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
