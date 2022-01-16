@@ -37,20 +37,30 @@
             <Font name="BebasNeue" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="correctAnswer" layoutX="80.0" layoutY="623.0" prefHeight="25.0" prefWidth="483.0" promptText="correct answer" style="-fx-background-color: #EBE0CF;">
+      <TextField fx:id="correctAnswer" layoutX="80.0" layoutY="623.0" prefHeight="25.0" prefWidth="483.0" promptText="Correct Answer" style="-fx-background-color: #EBE0CF;">
          <font>
             <Font name="BebasNeue" size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="submit" layoutX="517.0" layoutY="17.0" mnemonicParsing="false" onAction="#onClickSubmit" prefHeight="27.0" prefWidth="98.0" stylesheets="@submit_button.css" text="Submit">
+      <Button layoutX="518.0" layoutY="8.0" mnemonicParsing="false" onAction="#onClickSubmit" prefHeight="27.0" prefWidth="98.0" stylesheets="@submit_button.css" text="Submit">
          <font>
             <Font name="BebasNeue" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="30.0" layoutY="17.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="27.0" prefWidth="98.0" stylesheets="@back_button.css" text="back">
+      <Button layoutX="31.0" layoutY="8.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="27.0" prefWidth="98.0" stylesheets="@back_button.css" text="Back">
          <font>
             <Font name="BebasNeue" size="12.0" />
          </font>
       </Button>
+      <Button layoutX="517.0" layoutY="59.0" mnemonicParsing="false" onAction="#onClickAdd" prefHeight="27.0" prefWidth="98.0" stylesheets="@submit_button.css" text="Add">
+         <font>
+            <Font name="BebasNeue" size="12.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="topic" blendMode="MULTIPLY" layoutX="44.0" layoutY="105.0" prefHeight="16.0" prefWidth="556.0" promptText="Type your question here..." scrollTop="10.0" style="-fx-background-color: #EBE0CF;" wrapText="true">
+         <font>
+            <Font name="BebasNeue" size="16.0" />
+         </font>
+      </TextArea>
     </children>
 </AnchorPane>

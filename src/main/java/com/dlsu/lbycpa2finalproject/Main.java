@@ -19,10 +19,11 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class Main extends Application {
+    public int id = 2;
     private static Scene s;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Create.fxml"));
         s = new Scene(fxmlLoader.load(), 643, 689);
         stage.setTitle("Welcome to Quiztify!");
         stage.setScene(s);
