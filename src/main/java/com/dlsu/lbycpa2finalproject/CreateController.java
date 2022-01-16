@@ -10,10 +10,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateController extends Main {
+    public String topicStr;
+
     QuizController qc = new QuizController();
     QuestionObject temp = new QuestionObject();
     List<QuestionObject> qn = new ArrayList<>();
@@ -74,14 +77,26 @@ public class CreateController extends Main {
     }
 
     @FXML
-    void onClickSubmit(ActionEvent event) {
+    void onClickSubmit(ActionEvent event) throws IOException {
+        topicStr = topic.getText();
+        boolean found = false;
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
         temp.setChoices(choices);
         temp.setQuestion(inputQuestion.getText());
+        temp.setPointWeight(1);
         for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
-            if(choices[i].equals(correctAnswer.getText())) temp.setAnswer(i);
+            if(choices[i].equals(correctAnswer.getText())) {
+                temp.setAnswer(i);
+                found = true;
+            }
         }
-        qn.add(temp);
+        if(found) {
+            qn.add(temp);
+            clearScene();
+        }
+        else{
+            errorMsg.toFront();
+        }
 
         qz.setID(String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase());
         id++;
@@ -90,6 +105,8 @@ public class CreateController extends Main {
         qc.manageQuiz(qz);
         topic.clear();
         clearScene();
+
+        setRoot("Summary");
     }
 
     void clearScene(){

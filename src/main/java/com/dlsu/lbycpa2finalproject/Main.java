@@ -4,6 +4,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.dlsu.lbycpa2finalproject.backend.FirebaseInitializer;
 import com.dlsu.lbycpa2finalproject.backend.ImageController;
+import com.dlsu.lbycpa2finalproject.backend.QuizController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,16 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class Main extends Application {
-    public int id = 2;
+    QuizController qController = new QuizController();
+    public int id;
+    {
+        try {
+            id = qController.getTopics().size()+1;
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static Scene s;
     @Override
     public void start(Stage stage) throws IOException {

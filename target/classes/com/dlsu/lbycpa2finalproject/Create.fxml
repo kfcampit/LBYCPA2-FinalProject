@@ -63,7 +63,7 @@
             <Font name="BebasNeue" size="12.0" />
          </font>
       </Button>
-      <TextArea fx:id="topic" blendMode="MULTIPLY" layoutX="44.0" layoutY="105.0" prefHeight="16.0" prefWidth="556.0" promptText="Type your question here..." scrollTop="10.0" style="-fx-background-color: #EBE0CF;" wrapText="true">
+      <TextArea fx:id="topic" blendMode="MULTIPLY" layoutX="44.0" layoutY="105.0" prefHeight="16.0" prefWidth="556.0" promptText="Type your topic here..." scrollTop="10.0" style="-fx-background-color: #EBE0CF;" wrapText="true">
          <font>
             <Font name="BebasNeue" size="16.0" />
          </font>
