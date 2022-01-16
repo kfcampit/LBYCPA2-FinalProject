@@ -6,6 +6,7 @@ import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -17,6 +18,9 @@ public class CreateController extends Main {
     QuestionObject temp = new QuestionObject();
     List<QuestionObject> qn = new ArrayList<>();
     QuizObject qz = new QuizObject();
+
+    @FXML
+    private Label errorMsg;
 
     @FXML
     private TextField choice1;
@@ -44,15 +48,24 @@ public class CreateController extends Main {
 
     @FXML
     void onClickAdd(ActionEvent event) {
+        boolean found = false;
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
         temp.setChoices(choices);
         temp.setQuestion(inputQuestion.getText());
-        for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
-            if(choices[i].equals(correctAnswer.getText())) temp.setAnswer(i);
-        }
         temp.setPointWeight(1);
-        qn.add(temp);
-        clearScene();
+        for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
+            if(choices[i].equals(correctAnswer.getText())) {
+                temp.setAnswer(i);
+                found = true;
+            }
+        }
+        if(found) {
+            qn.add(temp);
+            clearScene();
+        }
+        else{
+            errorMsg.toFront();
+        }
     }
 
     @FXML
@@ -80,6 +93,7 @@ public class CreateController extends Main {
     }
 
     void clearScene(){
+        errorMsg.toBack();
         choice1.clear();
         choice2.clear();
         choice3.clear();
