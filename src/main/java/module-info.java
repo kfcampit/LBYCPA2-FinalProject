@@ -17,6 +17,8 @@ module com.dlsu.lbycpa2finalproject {
     requires google.cloud.firestore;
     requires com.google.api.apicommon;
     requires google.cloud.core;
+    requires cloudinary.http44;
+    requires cloudinary.core;
 
     opens com.dlsu.lbycpa2finalproject to javafx.fxml;
     opens com.dlsu.lbycpa2finalproject.backend to javafx.fxml;

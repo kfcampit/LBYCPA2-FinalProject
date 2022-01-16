@@ -1,17 +1,21 @@
 package com.dlsu.lbycpa2finalproject;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.dlsu.lbycpa2finalproject.backend.FirebaseInitializer;
-import com.dlsu.lbycpa2finalproject.backend.QuestionObject;
-import com.dlsu.lbycpa2finalproject.backend.QuizController;
-import com.dlsu.lbycpa2finalproject.backend.QuizObject;
+import com.dlsu.lbycpa2finalproject.backend.ImageController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import com.cloudinary.*;
+import com.cloudinary.utils.ObjectUtils;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class Main extends Application {
@@ -38,6 +42,17 @@ public class Main extends Application {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
         new FirebaseInitializer();
+        ImageController ic = new ImageController();
+
+        /*
+        File file = new File("src/main/assets/images/0001-basic-math-q001-image.jpg");
+        Map uploadResult = cloudinary.uploader().upload(file,ObjectUtils.asMap(
+                "folder", "0001-basic-math",
+                "use_filename", true,
+                "unique_filename", false));
+        */
+
+        System.out.println(ic.loadImageURL("0001-basic-math-q001-image.jpg","0001-basic-math"));
 
         /*
         QuizController qc = new QuizController();       //Outputs:

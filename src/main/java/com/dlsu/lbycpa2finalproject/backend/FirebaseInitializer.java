@@ -16,9 +16,7 @@ public class FirebaseInitializer {
         FirebaseOptions options = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.fromStream(new FileInputStream("ServiceAccountKey.json")))
                 .build();
-
         FirebaseApp.initializeApp(options);
-
         /*
         ApiFuture<QuerySnapshot> query = db.collection("quizzes").get();
         QuerySnapshot querySnapshot = query.get();
