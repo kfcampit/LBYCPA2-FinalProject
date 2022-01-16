@@ -40,17 +40,17 @@ public class EditController {
 
     @FXML
     void onClickBack(ActionEvent event) {
-
+        System.out.println("back");
     }
 
     @FXML
     void onClickEdit(ActionEvent event) {
-
+        System.out.println("edit");
     }
 
     @FXML
     void onClickSearch(ActionEvent event) {
-
+        System.out.println("search");
     }
 
 }
