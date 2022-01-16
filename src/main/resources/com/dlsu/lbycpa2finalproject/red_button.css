@@ -1,10 +1,10 @@
 .button {
-  -fx-background-color: #ECB365; /* Medyo Light Orange */
+  -fx-background-color: #ff0000;
   -fx-border: none;
   -fx-border-radius: 10px;
   -fx-color: white;
   -fx-padding: 10px 20px 10px 20px;
-  -fx-text-fill: #041C32;
+  -fx-text-fill: #ffffff;
   -fx-text-align: center;
   -fx-text-decoration: none;
   -fx-display: inline-block;
@@ -14,7 +14,7 @@
 }
 
 .button:hover{
-  -fx-background-color: #4A47A3; /* Light Blue Ata */
+  -fx-background-color: #8f0000;
   -fx-border: none;
   -fx-border-radius: 10px;
   -fx-color: white;
@@ -30,7 +30,7 @@
 }
 
 .button:pressed{
-  -fx-background-color: #04293A; /* Dark Blue */
+  -fx-background-color: #380000;
   -fx-border: none;
   -fx-border-radius: 10px;
   -fx-color: white;
