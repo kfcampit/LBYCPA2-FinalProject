@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.AnswerController">
     <children>
         <ImageView fitHeight="699.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@Quiztify_answer.png" />
             </image></ImageView>
-      <Button layoutX="61.0" layoutY="495.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="256.0" stylesheets="@red_button.css" text="Button" textFill="WHITE" wrapText="true">
+      <Button fx:id="redOption" layoutX="61.0" layoutY="495.0" mnemonicParsing="false" onAction="#onClickRedOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@red_button.css" text="Button" textFill="WHITE" wrapText="true">
          <effect>
             <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
                <bumpInput>
@@ -26,7 +30,7 @@
          <font>
             <Font name="BebasNeue" size="21.0" />
          </font></Button>
-      <Button layoutX="327.0" layoutY="495.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="256.0" stylesheets="@blue_button.css" text="Button" textFill="WHITE" wrapText="true">
+      <Button fx:id="blueOption" layoutX="327.0" layoutY="495.0" mnemonicParsing="false" onAction="#onClickBlueOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@blue_button.css" text="Button" textFill="WHITE" wrapText="true">
          <effect>
             <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
                <bumpInput>
@@ -41,7 +45,7 @@
             <Font name="BebasNeue" size="21.0" />
          </font>
       </Button>
-      <Button layoutX="61.0" layoutY="566.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="256.0" stylesheets="@orange_button.css" text="Button" textFill="WHITE" wrapText="true">
+      <Button fx:id="yellowOption" layoutX="61.0" layoutY="566.0" mnemonicParsing="false" onAction="#onClickYellowOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@orange_button.css" text="Button" textFill="WHITE" wrapText="true">
          <effect>
             <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
                <bumpInput>
@@ -56,7 +60,7 @@
             <Font name="BebasNeue" size="21.0" />
          </font>
       </Button>
-      <Button layoutX="327.0" layoutY="566.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="256.0" stylesheets="@green_button.css" text="Button" textFill="WHITE" wrapText="true">
+      <Button fx:id="greenOption" layoutX="327.0" layoutY="566.0" mnemonicParsing="false" onAction="#onClickGreenOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@green_button.css" text="Button" textFill="WHITE" wrapText="true">
          <effect>
             <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
                <bumpInput>
@@ -71,5 +75,6 @@
             <Font name="BebasNeue" size="21.0" />
          </font>
       </Button>
+      <Label fx:id="userQuestion" layoutX="26.0" layoutY="184.0" prefHeight="252.0" prefWidth="591.0" textAlignment="CENTER" />
     </children>
 </AnchorPane>
