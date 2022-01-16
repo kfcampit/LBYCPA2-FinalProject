@@ -1,5 +1,5 @@
 .button {
-  -fx-background-color: #10bd00;
+  -fx-background-color: #000000;
   -fx-border: none;
   -fx-border-radius: 10px;
   -fx-color: white;
@@ -8,13 +8,13 @@
   -fx-text-align: center;
   -fx-text-decoration: none;
   -fx-display: inline-block;
-  -fx-font-family: Bebas neue;
-  -fx-font-size: 16pt;
+  -fx-font-family: bebas neue;
+  -fx-font-size: 10pt;
   -fx-font-weight: normal;
 }
 
 .button:hover{
-  -fx-background-color: #086100;
+  -fx-background-color: #4A47A3;
   -fx-border: none;
   -fx-border-radius: 10px;
   -fx-color: white;
@@ -23,14 +23,14 @@
   -fx-text-align: center;
   -fx-text-decoration: none;
   -fx-display: inline-block;
-  -fx-font-family: Bebas neue;
+  -fx-font-family: bebas neue;
   -fx-text-fill: white;
-  -fx-font-size: 16pt;
+  -fx-font-size: 10pt;
   -fx-font-weight: normal;
 }
 
 .button:pressed{
-  -fx-background-color: #053d00;
+  -fx-background-color: #04293A;
   -fx-border: none;
   -fx-border-radius: 10px;
   -fx-color: white;
@@ -39,8 +39,8 @@
   -fx-text-align: center;
   -fx-text-decoration: none;
   -fx-display: inline-block;
-  -fx-font-family: Bebas neue;
+  -fx-font-family: bebas neue;
   -fx-text-fill: white;
-  -fx-font-size: 16pt;
+  -fx-font-size: 10pt;
   -fx-font-weight: normal;
 }
