@@ -33,6 +33,14 @@ public class CreateController {
     private Button back;
 
     @FXML
+    private Button add;
+
+    @FXML
+    void onClickAdd(ActionEvent event) {
+
+    }
+
+    @FXML
     void onClickBack(ActionEvent event) {
         System.out.println("back");
     }
