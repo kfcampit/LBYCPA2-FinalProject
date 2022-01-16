@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="699.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Quiztify_answer.png" />
+            </image></ImageView>
+      <Button layoutX="61.0" layoutY="495.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="256.0" style="-fx-background-color: red;" text="Button" textFill="WHITE" wrapText="true">
+         <effect>
+            <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant azimuth="36.63" elevation="120.35" />
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="BebasNeue" size="21.0" />
+         </font></Button>
+      <Button layoutX="327.0" layoutY="495.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="256.0" style="-fx-background-color: blue;" text="Button" textFill="WHITE" wrapText="true">
+         <effect>
+            <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant azimuth="36.63" elevation="120.35" />
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="BebasNeue" size="21.0" />
+         </font>
+      </Button>
+      <Button layoutX="61.0" layoutY="566.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="256.0" style="-fx-background-color: orange;" text="Button" textFill="WHITE" wrapText="true">
+         <effect>
+            <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant azimuth="36.63" elevation="120.35" />
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="BebasNeue" size="21.0" />
+         </font>
+      </Button>
+      <Button layoutX="327.0" layoutY="566.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="256.0" style="-fx-background-color: green;" text="Button" textFill="WHITE" wrapText="true">
+         <effect>
+            <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant azimuth="36.63" elevation="120.35" />
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="BebasNeue" size="21.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
