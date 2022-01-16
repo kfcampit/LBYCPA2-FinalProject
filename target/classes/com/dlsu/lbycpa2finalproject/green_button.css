@@ -1,0 +1,46 @@
+.button {
+  -fx-background-color: #10bd00;
+  -fx-border: none;
+  -fx-border-radius: 10px;
+  -fx-color: white;
+  -fx-padding: 10px 20px 10px 20px;
+  -fx-text-fill: #ffffff;
+  -fx-text-align: center;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-family: Bebas neue;
+  -fx-font-size: 16pt;
+  -fx-font-weight: normal;
+}
+
+.button:hover{
+  -fx-background-color: #086100;
+  -fx-border: none;
+  -fx-border-radius: 10px;
+  -fx-color: white;
+  -fx-padding: 10px 20px 10px 20px;
+  -fx-text-fill: #041C32;
+  -fx-text-align: center;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-family: Bebas neue;
+  -fx-text-fill: white;
+  -fx-font-size: 16pt;
+  -fx-font-weight: normal;
+}
+
+.button:pressed{
+  -fx-background-color: #053d00;
+  -fx-border: none;
+  -fx-border-radius: 10px;
+  -fx-color: white;
+  -fx-padding: 10px 20px 10px 20px;
+  -fx-text-fill: #041C32;
+  -fx-text-align: center;
+  -fx-text-decoration: none;
+  -fx-display: inline-block;
+  -fx-font-family: Bebas neue;
+  -fx-text-fill: white;
+  -fx-font-size: 16pt;
+  -fx-font-weight: normal;
+}
