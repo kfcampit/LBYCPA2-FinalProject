@@ -21,7 +21,12 @@ public class QuizListController extends Main implements Initializable {
     QuizController qc = new QuizController();
     Alert alert = new Alert (Alert.AlertType.NONE);
     int topicNumber = 0;
-    public String id1, id2, id3, id4 = "", id5, clickedId;
+    public String id1;
+    public String id2;
+    public String id3;
+    public String id4;
+    public String id5;
+    public static String clickedId;
 
     @FXML
     private Label topic1;
@@ -44,6 +49,7 @@ public class QuizListController extends Main implements Initializable {
     }
     @FXML
     void onClickGo1(ActionEvent event) throws IOException {
+
         clickedId = id1;
         System.out.println(clickedId);
         setRoot("Answer");
