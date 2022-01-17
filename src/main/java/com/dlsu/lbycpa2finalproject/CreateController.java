@@ -59,21 +59,23 @@ public class CreateController extends Main {
         temp.setQuestion(inputQuestion.getText());
         temp.setPointWeight(1);
         for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
-            if(choices[i].equals(correctAnswer.getText())) {
-                temp.setAnswer(i);
+            if(correctAnswer.getText().equals(choice1.getText()) || correctAnswer.getText().equals(choice2.getText()) || correctAnswer.getText().equals(choice3.getText()) || correctAnswer.getText().equals(choice4.getText())){
                 canProceed = true;
+                temp.setAnswer(i);
+                continue;
             }
-            if(i==choices.length-1 && !choices[i].equals(correctAnswer.getText())) {
-                alert.setAlertType(Alert.AlertType.INFORMATION);
-                alert.setContentText("ERROR! Correct Answer Not in Choices.");
+            else if(!correctAnswer.getText().equals(choice1.getText()) || !correctAnswer.getText().equals(choice2.getText()) || !correctAnswer.getText().equals(choice3.getText()) || !correctAnswer.getText().equals(choice4.getText())){
+                alert.setAlertType(Alert.AlertType.ERROR);
+                alert.setContentText("Correct Answer Not in Choices.");
                 alert.show();
+                canProceed = false;
                 //errorMsg.toFront();
             }
             for (int j = 0; j < choices.length; j++) { /* Compare each element kung may mag-repeat na choice */
                 if(choices[i].equals(choices[j]) && i!=j) {
                     canProceed = false;
-                    alert.setAlertType(Alert.AlertType.INFORMATION);
-                    alert.setContentText("ERROR! There Are Similar Choices.");
+                    alert.setAlertType(Alert.AlertType.ERROR);
+                    alert.setContentText("There Are Similar Choices.");
                     alert.show();
                     //errorSimilar.toFront();
                     break;
