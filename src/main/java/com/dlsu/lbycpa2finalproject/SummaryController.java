@@ -1,5 +1,7 @@
 package com.dlsu.lbycpa2finalproject;
 
+import com.dlsu.lbycpa2finalproject.backend.QuizController;
+import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,9 +10,13 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
 
 public class SummaryController extends CreateController implements Initializable {
-    int questionNum = 0;
+    private int questionNum = 0;
+    private String quizID;
+    private QuizObject qz;
+    private QuizController qc = new QuizController();
     @FXML
     private TextField displayChoice1;
 
@@ -38,14 +44,14 @@ public class SummaryController extends CreateController implements Initializable
     }
 
     @FXML
-    void onClickNext(ActionEvent event) {
+    void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException {
         displayInfo(questionNum);
         questionNum++;
         System.out.println("next");
     }
 
     @FXML
-    void onClickPrevious(ActionEvent event) {
+    void onClickPrevious(ActionEvent event) throws ExecutionException, InterruptedException {
         displayInfo(questionNum);
         questionNum--;
         System.out.println("prev");
@@ -53,12 +59,18 @@ public class SummaryController extends CreateController implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        quizID = CreateController.getQuizID();
         displayTopic.setText(topicStr);
-        displayInfo(questionNum);
+        try {
+            displayInfo(questionNum);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         questionNum++;
     }
 
-    void displayInfo(int questionNum){
+    void displayInfo(int questionNum) throws ExecutionException, InterruptedException {
+        qz = qc.getQuiz(quizID);
         displayChoice1.setText(qz.getQuestionList().get(questionNum).getChoices()[0]);
         displayChoice2.setText(qz.getQuestionList().get(questionNum).getChoices()[1]);
         displayChoice3.setText(qz.getQuestionList().get(questionNum).getChoices()[2]);

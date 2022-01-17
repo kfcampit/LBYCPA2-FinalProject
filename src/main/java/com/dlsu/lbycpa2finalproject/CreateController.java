@@ -16,9 +16,10 @@ import java.util.List;
 
 public class CreateController extends Main {
     public String topicStr;
+    private static String quizID = "";
 
     QuizController qc = new QuizController();
-    QuestionObject temp = new QuestionObject();
+    QuestionObject temp;
     List<QuestionObject> qn = new ArrayList<>();
     QuizObject qz = new QuizObject();
 
@@ -50,7 +51,8 @@ public class CreateController extends Main {
     }
 
     @FXML
-    void onClickAdd(ActionEvent event) {
+    public void onClickAdd(ActionEvent event) {
+        QuestionObject temp = new QuestionObject();
         boolean found = false;
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
         temp.setChoices(choices);
@@ -79,6 +81,7 @@ public class CreateController extends Main {
     @FXML
     void onClickSubmit(ActionEvent event) throws IOException {
         topicStr = topic.getText();
+        QuestionObject temp = new QuestionObject();
         boolean found = false;
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
         temp.setChoices(choices);
@@ -98,13 +101,16 @@ public class CreateController extends Main {
             errorMsg.toFront();
         }
 
-        qz.setID(String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase());
+        quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
+        qz.setID(quizID);
         id++;
         qz.setTopic(topic.getText());
         qz.setQuestions(qn);
         qc.manageQuiz(qz);
         topic.clear();
         clearScene();
+
+
 
         setRoot("Summary");
     }
@@ -117,5 +123,9 @@ public class CreateController extends Main {
         choice4.clear();
         correctAnswer.clear();
         inputQuestion.clear();
+    }
+
+    public static String getQuizID() {
+        return quizID;
     }
 }
