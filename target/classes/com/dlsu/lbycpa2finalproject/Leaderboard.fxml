@@ -11,7 +11,7 @@
                 <Image url="@Quiztify_leaderboard.png" />
             </image></ImageView>
         <Label fx:id="name1" layoutX="136.0" layoutY="182.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-        <Button fx:id="back" layoutX="30.0" layoutY="35.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="27.0" prefWidth="98.0" stylesheets="@back_button.css" text="back" />
+        <Button fx:id="back" layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="home" />
       <Label fx:id="score1" layoutX="136.0" layoutY="214.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
       <Label fx:id="name2" layoutX="136.0" layoutY="262.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
       <Label fx:id="score2" layoutX="136.0" layoutY="294.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
