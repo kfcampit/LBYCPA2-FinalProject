@@ -68,7 +68,6 @@ public class SummaryController extends CreateController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         quizID = CreateController.getQuizID();
-//        displayTopic.setText(qz.getTopic()); /* paayos neto nagiging null yung qz.getTopic() */
         try {
             displayInfo(questionNum);
         } catch (Exception e) {
