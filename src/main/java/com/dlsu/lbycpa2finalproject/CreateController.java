@@ -21,6 +21,8 @@ public class CreateController extends Main {
     QuestionObject temp;
     List<QuestionObject> qn = new ArrayList<>();
     QuizObject qz = new QuizObject();
+    @FXML
+    private Label errorSimilar;
 
     @FXML
     private Label errorMsg;
@@ -52,8 +54,7 @@ public class CreateController extends Main {
     @FXML
     public void onClickAdd(ActionEvent event) {
         QuestionObject temp = new QuestionObject();
-        boolean hasRepeat = false;
-        boolean found = false;
+        boolean canProceed = false; /* Kung pwede na iadd yung question */
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
         temp.setChoices(choices);
         temp.setQuestion(inputQuestion.getText());
@@ -61,15 +62,23 @@ public class CreateController extends Main {
         for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
             if(choices[i].equals(correctAnswer.getText())) {
                 temp.setAnswer(i);
-                found = true;
+                canProceed = true;
             }
+            else if(i==choices.length-1 && !choices[i].equals(correctAnswer.getText())) {
+                errorMsg.toFront();
+            }
+            for (int j = 0; j < choices.length; j++) { /* Compare each element kung may mag-repeat na choice */
+                if(choices[i].equals(choices[j]) && i!=j) {
+                    canProceed = false;
+                    errorSimilar.toFront();
+                    break;
+                }
+            }
+
         }
-        if(found) {
+        if(canProceed) {
             qn.add(temp);
             clearScene();
-        }
-        else{
-            errorMsg.toFront();
         }
     }
 
@@ -116,6 +125,7 @@ public class CreateController extends Main {
     }
 
     void clearScene(){
+        errorSimilar.toBack();
         errorMsg.toBack();
         choice1.clear();
         choice2.clear();
