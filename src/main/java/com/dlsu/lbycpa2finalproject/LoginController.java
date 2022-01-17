@@ -12,10 +12,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
-public class LoginController {
+public class LoginController extends Main {
     private AccountController ac = new AccountController();
 
     @FXML
@@ -28,7 +29,7 @@ public class LoginController {
     public Text errorText;
 
     @FXML
-    public void onLoginButtonClick() throws ExecutionException, InterruptedException {
+    public void onLoginButtonClick() throws ExecutionException, InterruptedException, IOException {
         String pass = "";
         if (Objects.equals(username.getText(), "") || (Objects.equals(password_hidden.getText(), "") && Objects.equals(password_text.getText(), ""))) {
             errorText.setText("Please complete all the details");
@@ -46,6 +47,7 @@ public class LoginController {
             errorText.setVisible(true);
             password_text.clear();
         }
+        setRoot("Main");
     }
 
     @FXML
