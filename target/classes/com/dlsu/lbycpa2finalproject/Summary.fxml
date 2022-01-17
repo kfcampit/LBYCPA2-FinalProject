@@ -44,7 +44,7 @@
                 <Font name="BebasNeue" size="16.0" />
             </font>
         </TextField>
-        <Button layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickMainMenu" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="home">
+        <Button layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickHome" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="home">
             <font>
                 <Font name="BebasNeue" size="12.0" />
             </font>

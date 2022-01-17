@@ -54,7 +54,7 @@
             <Font name="BebasNeue" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="46.0" prefWidth="88.0" stylesheets="@back_button.css" text="Home">
+      <Button layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickHome" prefHeight="46.0" prefWidth="88.0" stylesheets="@back_button.css" text="Home">
          <font>
             <Font name="BebasNeue" size="12.0" />
          </font>

@@ -13,7 +13,7 @@ public class LeaderboardController extends Main{
     private Label name1;
 
     @FXML
-    private Button back;
+    private Button home;
 
     @FXML
     private Label score1;
