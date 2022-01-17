@@ -62,7 +62,6 @@ public class CreateController extends Main {
             if(correctAnswer.getText().equals(choice1.getText()) || correctAnswer.getText().equals(choice2.getText()) || correctAnswer.getText().equals(choice3.getText()) || correctAnswer.getText().equals(choice4.getText())){
                 canProceed = true;
                 temp.setAnswer(i);
-                continue;
             }
             else if(!correctAnswer.getText().equals(choice1.getText()) || !correctAnswer.getText().equals(choice2.getText()) || !correctAnswer.getText().equals(choice3.getText()) || !correctAnswer.getText().equals(choice4.getText())){
                 alert.setAlertType(Alert.AlertType.ERROR);
