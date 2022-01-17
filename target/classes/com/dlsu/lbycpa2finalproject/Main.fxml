@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.MainController">
    <children>
       <ImageView fitHeight="699.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -13,7 +12,7 @@
          </image></ImageView>
       <Button fx:id="AddQuiz" layoutX="228.0" layoutY="345.0" mnemonicParsing="false" onAction="#onClickAddQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@button.css" text="Add Quiz" />
       <Button fx:id="LoadQuiz" layoutX="228.0" layoutY="403.0" mnemonicParsing="false" onAction="#onClickLoadQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@button.css" text="Load Quiz" />
-      <Button fx:id="DeleteQuiz" layoutX="228.0" layoutY="460.0" mnemonicParsing="false" onAction="#onClickDeleteQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@button.css" text="Delete Quiz" />
+      <Button fx:id="EditQuiz" layoutX="228.0" layoutY="460.0" mnemonicParsing="false" onAction="#onClickEditQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@button.css" text="Edit Quiz" />
       <Button fx:id="Leaderboards" layoutX="229.0" layoutY="518.0" mnemonicParsing="false" onAction="#onClickLeaderboards" stylesheets="@button.css" text="Leaderboards" />
    </children>
 </AnchorPane>
