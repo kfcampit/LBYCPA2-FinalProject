@@ -46,7 +46,7 @@ public class SummaryController extends CreateController implements Initializable
     private Button nextBtn;
 
     @FXML
-    void onClickMainMenu(ActionEvent event) throws IOException {
+    void onClickHome(ActionEvent event) throws IOException {
         setRoot("Main");
     }
 

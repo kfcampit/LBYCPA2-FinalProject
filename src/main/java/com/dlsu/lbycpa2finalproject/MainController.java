@@ -35,6 +35,6 @@ public class MainController extends Main{
     @FXML
     void onClickLoadQuiz(ActionEvent event) throws IOException {
 //        System.out.println("Load");
-        setRoot("Answer");
+        setRoot("QuizList");
     }
 }

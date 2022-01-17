@@ -32,7 +32,7 @@ public class EditController extends Main{
     private Button edit;
 
     @FXML
-    private Button back;
+    private Button home;
 
     @FXML
     private TextField qID;
@@ -41,7 +41,7 @@ public class EditController extends Main{
     private Button search;
 
     @FXML
-    void onClickBack(ActionEvent event) throws IOException {
+    void onClickHome(ActionEvent event) throws IOException {
         //System.out.println("back");
         setRoot("Main");
     }

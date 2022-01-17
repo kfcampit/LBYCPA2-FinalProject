@@ -89,7 +89,7 @@ public class CreateController extends Main {
     }
 
     @FXML
-    void onClickBack(ActionEvent event) throws IOException {
+    void onClickHome(ActionEvent event) throws IOException {
         //System.out.println("back");
         setRoot("Main");
     }
