@@ -12,7 +12,7 @@
             <image>
                 <Image url="@Quiztify_topics.png" />
             </image></ImageView>
-        <Button fx:id="home" layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickHome" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="Home" />
+        <Button fx:id="home" layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickHome" prefHeight="46.0" prefWidth="91.0" stylesheets="@back_button.css" text="Home" />
         <Label fx:id="topic1" layoutX="136.0" layoutY="201.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
         <Label fx:id="topic2" layoutX="136.0" layoutY="280.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
         <Label fx:id="topic3" layoutX="136.0" layoutY="359.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
