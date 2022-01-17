@@ -106,8 +106,13 @@ public class SummaryController extends CreateController implements Initializable
         displayChoice4.setText(qz.getQuestionList().get(questionNum).getChoices()[3]);
         displayQuestion.setText(qz.getQuestionList().get(questionNum).getQuestion());
         displayAnswer.setText(qz.getQuestionList().get(questionNum).getChoices()[qz.getQuestionList().get(questionNum).getAnswer()]);
-        imageView.setImage(new Image(qz.getQuestionList().get(questionNum).getImageURL()));
-        centerImage();
+        try {
+            imageView.setImage(new Image(qz.getQuestionList().get(questionNum).getImageURL()));
+            centerImage();
+        } catch (Exception ignore) {
+
+        }
+
         MAX_LENGTH = qz.getNumberQuestions();
     }
 

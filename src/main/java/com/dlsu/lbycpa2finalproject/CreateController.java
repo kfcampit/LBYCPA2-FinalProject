@@ -96,9 +96,12 @@ public class CreateController extends Main {
 
         }
         if(canProceed) {
-            System.out.println(getQuizID());
-            ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
-            temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
+            try {
+                ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
+                temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
+            } catch (RuntimeException e) {
+                temp.setImageURL("");
+            }
             qn.add(temp);
             clearScene();
         }
@@ -128,8 +131,12 @@ public class CreateController extends Main {
         quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
 
         if(found) {
-            ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
-            temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
+            try {
+                ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
+                temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
+            } catch (RuntimeException e) {
+                temp.setImageURL("");
+            }
             qn.add(temp);
             clearScene();
         }
