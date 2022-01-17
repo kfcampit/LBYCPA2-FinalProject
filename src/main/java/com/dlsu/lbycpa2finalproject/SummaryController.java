@@ -65,6 +65,7 @@ public class SummaryController extends CreateController implements Initializable
             alert.setAlertType(Alert.AlertType.INFORMATION);
             alert.setContentText("ERROR! This is the First Question.");
             alert.show();
+            questionNum = 0;
         }
         else displayInfo(questionNum);
     }
