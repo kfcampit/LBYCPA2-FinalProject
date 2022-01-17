@@ -68,7 +68,7 @@ public class SummaryController extends CreateController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         quizID = CreateController.getQuizID();
-        displayTopic.setText(qz.getTopic()); /* paayos neto nagiging null yung qz.getTopic() */
+//        displayTopic.setText(qz.getTopic()); /* paayos neto nagiging null yung qz.getTopic() */
         try {
             displayInfo(questionNum);
         } catch (Exception e) {
@@ -78,6 +78,7 @@ public class SummaryController extends CreateController implements Initializable
 
     void displayInfo(int questionNum) throws ExecutionException, InterruptedException {
         qz = qc.getQuiz(quizID);
+        displayTopic.setText(qz.getTopic());
         displayChoice1.setText(qz.getQuestionList().get(questionNum).getChoices()[0]);
         displayChoice2.setText(qz.getQuestionList().get(questionNum).getChoices()[1]);
         displayChoice3.setText(qz.getQuestionList().get(questionNum).getChoices()[2]);
