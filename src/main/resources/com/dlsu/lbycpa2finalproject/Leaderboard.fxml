@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.LeaderboardController">
     <children>
@@ -10,17 +11,47 @@
             <image>
                 <Image url="@Quiztify_leaderboard.png" />
             </image></ImageView>
-        <Label fx:id="name1" layoutX="136.0" layoutY="182.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
+        <Label fx:id="name1" layoutX="136.0" layoutY="182.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
         <Button fx:id="home" layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="home" />
-      <Label fx:id="score1" layoutX="136.0" layoutY="214.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-      <Label fx:id="name2" layoutX="136.0" layoutY="262.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-      <Label fx:id="score2" layoutX="136.0" layoutY="294.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-      <Label fx:id="name3" layoutX="136.0" layoutY="344.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-      <Label fx:id="score3" layoutX="136.0" layoutY="376.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-      <Label fx:id="name4" layoutX="136.0" layoutY="421.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-      <Label fx:id="score4" layoutX="136.0" layoutY="453.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-      <Label fx:id="name5" layoutX="136.0" layoutY="499.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-      <Label fx:id="score5" layoutX="136.0" layoutY="531.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
+      <Label fx:id="score1" layoutX="136.0" layoutY="214.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="name2" layoutX="136.0" layoutY="262.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label fx:id="score2" layoutX="136.0" layoutY="294.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="name3" layoutX="136.0" layoutY="344.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label fx:id="score3" layoutX="136.0" layoutY="376.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="name4" layoutX="136.0" layoutY="421.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label fx:id="score4" layoutX="136.0" layoutY="453.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="name5" layoutX="136.0" layoutY="499.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label fx:id="score5" layoutX="136.0" layoutY="531.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
 
     </children>
 </AnchorPane>
