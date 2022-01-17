@@ -5,10 +5,7 @@ import com.dlsu.lbycpa2finalproject.backend.QuizController;
 import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +18,8 @@ public class CreateController extends Main {
     QuestionObject temp;
     List<QuestionObject> qn = new ArrayList<>();
     QuizObject qz = new QuizObject();
+    Alert alert = new Alert (Alert.AlertType.NONE);
+
     @FXML
     private Label errorSimilar;
 
@@ -64,13 +63,19 @@ public class CreateController extends Main {
                 temp.setAnswer(i);
                 canProceed = true;
             }
-            else if(i==choices.length-1 && !choices[i].equals(correctAnswer.getText())) {
-                errorMsg.toFront();
+            if(i==choices.length-1 && !choices[i].equals(correctAnswer.getText())) {
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+                alert.setContentText("ERROR! Correct Answer Not in Choices.");
+                alert.show();
+                //errorMsg.toFront();
             }
             for (int j = 0; j < choices.length; j++) { /* Compare each element kung may mag-repeat na choice */
                 if(choices[i].equals(choices[j]) && i!=j) {
                     canProceed = false;
-                    errorSimilar.toFront();
+                    alert.setAlertType(Alert.AlertType.INFORMATION);
+                    alert.setContentText("ERROR! There Are Similar Choices.");
+                    alert.show();
+                    //errorSimilar.toFront();
                     break;
                 }
             }

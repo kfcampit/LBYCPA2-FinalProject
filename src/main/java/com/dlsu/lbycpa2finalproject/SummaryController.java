@@ -60,7 +60,7 @@ public class SummaryController extends CreateController implements Initializable
     void onClickPrevious(ActionEvent event) throws ExecutionException, InterruptedException {
         questionNum--;
         if(questionNum<0) {
-            errorPrev.toFront();
+            //errorPrev.toFront();
             Alert alert = new Alert (Alert.AlertType.NONE);
             alert.setAlertType(Alert.AlertType.INFORMATION);
             alert.setContentText("ERROR! This is the First Question.");
