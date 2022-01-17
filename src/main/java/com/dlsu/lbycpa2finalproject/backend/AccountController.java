@@ -47,7 +47,7 @@ public class AccountController {
         account.put("username", user);
         account.put("password", pass);
         account.put("answersCorrect", 0);
-        account.put("answerIncorrect", 0);
+        account.put("answersIncorrect", 0);
         account.put("quizzesAnswered", 0);
 
         String accountID = String.format("%04d", numAccounts + 1) + "-" + user.toLowerCase();
@@ -67,7 +67,7 @@ public class AccountController {
             temp.put("username", document.getString("username"));
             temp.put("password", document.getString("password"));
             temp.put("answersCorrect", Math.toIntExact(document.getLong("answersCorrect")));
-            temp.put("answerIncorrect", Math.toIntExact(document.getLong("answerIncorrect")));
+            temp.put("answersIncorrect", Math.toIntExact(document.getLong("answersIncorrect")));
             temp.put("quizzesAnswered", Math.toIntExact(document.getLong("quizzesAnswered")));
 
             hashtable.put(document.getId(), temp);
