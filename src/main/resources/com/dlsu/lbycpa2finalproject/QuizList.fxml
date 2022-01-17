@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.QuizListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.QuizListController">
     <children>
         <ImageView fitHeight="699.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@Quiztify_topics.png" />
             </image></ImageView>
-        <Button fx:id="home" layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickHome" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="home" />
-        <Label fx:id="score1" layoutX="136.0" layoutY="201.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-        <Label fx:id="score2" layoutX="136.0" layoutY="280.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-        <Label fx:id="score3" layoutX="136.0" layoutY="359.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-        <Label fx:id="score4" layoutX="136.0" layoutY="437.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-        <Label fx:id="score5" layoutX="136.0" layoutY="517.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" />
-      <Button layoutX="56.0" layoutY="577.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="109.0" stylesheets="@back_button.css" text="previous" />
-      <Button layoutX="483.0" layoutY="577.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="109.0" stylesheets="@submit_button.css" text="next" />
+        <Button fx:id="home" layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickHome" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="Home" />
+        <Label fx:id="topic1" layoutX="136.0" layoutY="201.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+        <Label fx:id="topic2" layoutX="136.0" layoutY="280.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+        <Label fx:id="topic3" layoutX="136.0" layoutY="359.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+        <Label fx:id="topic4" layoutX="136.0" layoutY="437.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+        <Label fx:id="topic5" layoutX="136.0" layoutY="517.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+      <Button layoutX="56.0" layoutY="577.0" mnemonicParsing="false" onAction="#onClickPrev" prefHeight="44.0" prefWidth="109.0" stylesheets="@back_button.css" text="Previous" />
+      <Button layoutX="483.0" layoutY="577.0" mnemonicParsing="false" onAction="#onClickNext" prefHeight="44.0" prefWidth="109.0" stylesheets="@submit_button.css" text="Next" />
       <Button layoutX="528.0" layoutY="195.0" mnemonicParsing="false" onAction="#onClickGo" stylesheets="@submit_button.css" text="Go" />
       <Button layoutX="528.0" layoutY="274.0" mnemonicParsing="false" onAction="#onClickGo" stylesheets="@submit_button.css" text="Go" />
       <Button layoutX="528.0" layoutY="353.0" mnemonicParsing="false" onAction="#onClickGo" stylesheets="@submit_button.css" text="Go" />
