@@ -1,12 +1,19 @@
 package com.dlsu.lbycpa2finalproject;
 
+import com.dlsu.lbycpa2finalproject.backend.ImageController;
 import com.dlsu.lbycpa2finalproject.backend.QuestionObject;
 import com.dlsu.lbycpa2finalproject.backend.QuizController;
 import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +22,12 @@ public class CreateController extends Main {
     private static String quizID = "";
 
     QuizController qc = new QuizController();
+    ImageController ic = new ImageController();
     QuestionObject temp;
     List<QuestionObject> qn = new ArrayList<>();
     QuizObject qz = new QuizObject();
     Alert alert = new Alert (Alert.AlertType.NONE);
+    File selectedFile;
 
     @FXML
     private Label errorSimilar;
@@ -47,11 +56,15 @@ public class CreateController extends Main {
     @FXML
     private TextField correctAnswer;
 
+    @FXML
+    private ImageView imageView;
+
     public CreateController() {
     }
 
     @FXML
-    public void onClickAdd(ActionEvent event) {
+    public void onClickAdd(ActionEvent event) throws IOException {
+        quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
         QuestionObject temp = new QuestionObject();
         boolean canProceed = false; /* Kung pwede na iadd yung question */
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
@@ -83,6 +96,9 @@ public class CreateController extends Main {
 
         }
         if(canProceed) {
+            System.out.println(getQuizID());
+            ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
+            temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
             qn.add(temp);
             clearScene();
         }
@@ -108,15 +124,18 @@ public class CreateController extends Main {
                 found = true;
             }
         }
+
+        quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
+
         if(found) {
+            ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
+            temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
             qn.add(temp);
             clearScene();
         }
         else{
             errorMsg.toFront();
         }
-
-        quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
         qz.setID(quizID);
         id++;
         qz.setTopic(topic.getText());
@@ -139,9 +158,46 @@ public class CreateController extends Main {
         choice4.clear();
         correctAnswer.clear();
         inputQuestion.clear();
+        imageView.setImage(null);
     }
 
     public static String getQuizID() {
         return quizID;
+    }
+
+    public void onAddImage(MouseEvent mouseEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png"));
+        selectedFile = fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
+
+        imageView.setImage(new Image(selectedFile.toURI().toString()));
+        centerImage();
+
+        System.out.println("addImage");
+    }
+
+    private void centerImage() {
+        Image img = imageView.getImage();
+        if (img != null) {
+            double w = 0;
+            double h = 0;
+
+            double ratioX = imageView.getFitWidth() / img.getWidth();
+            double ratioY = imageView.getFitHeight() / img.getHeight();
+
+            double reducCoeff = 0;
+            if(ratioX >= ratioY) {
+                reducCoeff = ratioY;
+            } else {
+                reducCoeff = ratioX;
+            }
+
+            w = img.getWidth() * reducCoeff;
+            h = img.getHeight() * reducCoeff;
+
+            imageView.setX((imageView.getFitWidth() - w) / 2);
+            imageView.setY((imageView.getFitHeight() - h) / 2);
+
+        }
     }
 }

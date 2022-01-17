@@ -63,7 +63,6 @@ public class Main extends Application {
                 "unique_filename", false));
         */
 
-        System.out.println(ic.loadImageURL("0001-basic-math-q001-image.jpg","0001-basic-math"));
 
         /*
         QuizController qc = new QuizController();       //Outputs:

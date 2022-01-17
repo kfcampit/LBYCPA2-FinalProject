@@ -19,16 +19,13 @@ public class ImageController {
                 "api_secret", "FDuM60sKgLsOUDqD2yr1ckE9Snc"));
     }
 
-    public void saveImage(String filename, String quizID) throws IOException {
-        File file = new File("src/main/assets/images/" + filename);
-        Map uploadResult = cloudinary.uploader().upload(file, ObjectUtils.asMap(
-                "folder", quizID,
-                "use_filename", true,
-                "unique_filename", false));
+    public void saveImage(File filepath, String filename) throws IOException {
+        Map uploadResult = cloudinary.uploader().upload(filepath, ObjectUtils.asMap(
+                "public_id", filename));
     }
 
-    public String loadImageURL(String filename, String quizID) {
-        String src = cloudinary.url().imageTag(quizID + "/" + filename);
+    public String loadImageURL(String filename) {
+        String src = cloudinary.url().imageTag(filename);
         char[] temp = src.toCharArray();
         List<Character> tempList = new ArrayList<>();
 

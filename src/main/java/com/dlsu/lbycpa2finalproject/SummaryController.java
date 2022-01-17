@@ -1,11 +1,14 @@
 package com.dlsu.lbycpa2finalproject;
 
+import com.dlsu.lbycpa2finalproject.backend.ImageController;
 import com.dlsu.lbycpa2finalproject.backend.QuizController;
 import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +21,8 @@ public class SummaryController extends CreateController implements Initializable
     private String quizID;
     private QuizObject qz;
     private QuizController qc = new QuizController();
+    private ImageController ic = new ImageController();
+
     @FXML
     private Label errorPrev;
 
@@ -44,6 +49,9 @@ public class SummaryController extends CreateController implements Initializable
 
     @FXML
     private Button nextBtn;
+
+    @FXML
+    private ImageView imageView;
 
     @FXML
     void onClickMainMenu(ActionEvent event) throws IOException {
@@ -98,6 +106,34 @@ public class SummaryController extends CreateController implements Initializable
         displayChoice4.setText(qz.getQuestionList().get(questionNum).getChoices()[3]);
         displayQuestion.setText(qz.getQuestionList().get(questionNum).getQuestion());
         displayAnswer.setText(qz.getQuestionList().get(questionNum).getChoices()[qz.getQuestionList().get(questionNum).getAnswer()]);
+        imageView.setImage(new Image(qz.getQuestionList().get(questionNum).getImageURL()));
+        centerImage();
         MAX_LENGTH = qz.getNumberQuestions();
     }
+
+    private void centerImage() {
+        Image img = imageView.getImage();
+        if (img != null) {
+            double w = 0;
+            double h = 0;
+
+            double ratioX = imageView.getFitWidth() / img.getWidth();
+            double ratioY = imageView.getFitHeight() / img.getHeight();
+
+            double reducCoeff = 0;
+            if(ratioX >= ratioY) {
+                reducCoeff = ratioY;
+            } else {
+                reducCoeff = ratioX;
+            }
+
+            w = img.getWidth() * reducCoeff;
+            h = img.getHeight() * reducCoeff;
+
+            imageView.setX((imageView.getFitWidth() - w) / 2);
+            imageView.setY((imageView.getFitHeight() - h) / 2);
+
+        }
+    }
+
 }
