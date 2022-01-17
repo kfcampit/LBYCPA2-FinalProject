@@ -58,7 +58,7 @@
             <Font name="BebasNeue" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="home">
+      <Button layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="46.0" prefWidth="88.0" stylesheets="@back_button.css" text="Home">
          <font>
             <Font name="BebasNeue" size="12.0" />
          </font>
@@ -68,7 +68,7 @@
             <Font name="BebasNeue" size="12.0" />
          </font>
       </Button>
-      <TextArea fx:id="topic" blendMode="MULTIPLY" layoutX="44.0" layoutY="122.0" prefHeight="14.0" prefWidth="556.0" promptText="Type your topic here..." scrollTop="10.0" style="-fx-background-color: #EBE0CF;" wrapText="true">
+      <TextArea fx:id="topic" blendMode="MULTIPLY" layoutX="103.0" layoutY="114.0" prefHeight="54.0" prefWidth="507.0" promptText="Type your topic here..." scrollTop="10.0" style="-fx-background-color: #EBE0CF;" wrapText="true">
          <font>
             <Font name="BebasNeue" size="16.0" />
          </font>
