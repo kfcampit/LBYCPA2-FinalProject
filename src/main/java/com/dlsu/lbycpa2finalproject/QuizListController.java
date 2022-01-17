@@ -21,6 +21,7 @@ public class QuizListController extends Main implements Initializable {
     QuizController qc = new QuizController();
     Alert alert = new Alert (Alert.AlertType.NONE);
     int topicNumber = 0;
+    public String id1, id2, id3, id4 = "", id5, clickedId;
 
     @FXML
     private Label topic1;
@@ -38,14 +39,41 @@ public class QuizListController extends Main implements Initializable {
     private Label topic5;
 
     @FXML
-    private Button prev, next;
-
-    @FXML
     void onClickHome(ActionEvent event) throws IOException {
         setRoot("Main");
     }
     @FXML
-    void onClickGo(ActionEvent event) throws IOException {
+    void onClickGo1(ActionEvent event) throws IOException {
+        clickedId = id1;
+        System.out.println(clickedId);
+        setRoot("Answer");
+    }
+
+    @FXML
+    void onClickGo2(ActionEvent event) throws IOException {
+        clickedId = id2;
+        System.out.println(clickedId);
+        setRoot("Answer");
+    }
+
+    @FXML
+    void onClickGo3(ActionEvent event) throws IOException {
+        clickedId = id3;
+        System.out.println(clickedId);
+        setRoot("Answer");
+    }
+
+    @FXML
+    void onClickGo4(ActionEvent event) throws IOException {
+        clickedId = id4;
+        System.out.println(clickedId);
+        setRoot("Answer");
+    }
+
+    @FXML
+    void onClickGo5(ActionEvent event) throws IOException {
+        clickedId = id5;
+        System.out.println(clickedId);
         setRoot("Answer");
     }
 
@@ -65,20 +93,50 @@ public class QuizListController extends Main implements Initializable {
         for (int i = 0; i < 5; i++) {
             if(topicNumber < keyList.size()){
                 switch (i) {
-                    case 0 -> displayTopic(topic1, topicNumber);
-                    case 1 -> displayTopic(topic2, topicNumber);
-                    case 2 -> displayTopic(topic3, topicNumber);
-                    case 3 -> displayTopic(topic4, topicNumber);
-                    default -> displayTopic(topic5, topicNumber);
+                    case 0 -> {
+                        displayTopic(topic1, topicNumber);
+                        id1 = keyList.get(topicNumber);
+                    }
+                    case 1 -> {
+                        displayTopic(topic2, topicNumber);
+                        id2 = keyList.get(topicNumber);
+                    }
+                    case 2 -> {
+                        displayTopic(topic3, topicNumber);
+                        id3 = keyList.get(topicNumber);
+                    }
+                    case 3 -> {
+                        displayTopic(topic4, topicNumber);
+                        id4 = keyList.get(topicNumber);
+                    }
+                    default -> {
+                        displayTopic(topic5, topicNumber);
+                        id5 = keyList.get(topicNumber);
+                    }
                 }
             }
             else{
                 switch (i) {
-                    case 0 -> topic1.setText("");
-                    case 1 -> topic2.setText("");
-                    case 2 -> topic3.setText("");
-                    case 3 -> topic4.setText("");
-                    default -> topic5.setText("");
+                    case 0 -> {
+                        topic1.setText("");
+                        id1 = "";
+                    }
+                    case 1 -> {
+                        topic2.setText("");
+                        id2 = "";
+                    }
+                    case 2 -> {
+                        topic3.setText("");
+                        id3 = "";
+                    }
+                    case 3 -> {
+                        topic4.setText("");
+                        id4 = "";
+                    }
+                    default -> {
+                        topic5.setText("");
+                        id5 = "";
+                    }
                 }
             }
             topicNumber++;
@@ -98,19 +156,49 @@ public class QuizListController extends Main implements Initializable {
         for (int i = 0; i < 5; i++) {
             if (topicNumber < keyList.size()) {
                 switch (i) {
-                    case 0 -> displayTopic(topic1, topicNumber);
-                    case 1 -> displayTopic(topic2, topicNumber);
-                    case 2 -> displayTopic(topic3, topicNumber);
-                    case 3 -> displayTopic(topic4, topicNumber);
-                    default -> displayTopic(topic5, topicNumber);
+                    case 0 -> {
+                        displayTopic(topic1, topicNumber);
+                        id1 = keyList.get(topicNumber);
+                    }
+                    case 1 -> {
+                        displayTopic(topic2, topicNumber);
+                        id2 = keyList.get(topicNumber);
+                    }
+                    case 2 -> {
+                        displayTopic(topic3, topicNumber);
+                        id3 = keyList.get(topicNumber);
+                    }
+                    case 3 -> {
+                        displayTopic(topic4, topicNumber);
+                        id4 = keyList.get(topicNumber);
+                    }
+                    default -> {
+                        displayTopic(topic5, topicNumber);
+                        id5 = keyList.get(topicNumber);
+                    }
                 }
             } else {
                 switch (i) {
-                    case 0 -> topic1.setText("");
-                    case 1 -> topic2.setText("");
-                    case 2 -> topic3.setText("");
-                    case 3 -> topic4.setText("");
-                    default -> topic5.setText("");
+                    case 0 -> {
+                        topic1.setText("");
+                        id1 = "";
+                    }
+                    case 1 -> {
+                        topic2.setText("");
+                        id2 = "";
+                    }
+                    case 2 -> {
+                        topic3.setText("");
+                        id3 = "";
+                    }
+                    case 3 -> {
+                        topic4.setText("");
+                        id4 = "";
+                    }
+                    default -> {
+                        topic5.setText("");
+                        id5 = "";
+                    }
                 }
             }
             topicNumber++;
@@ -128,10 +216,15 @@ public class QuizListController extends Main implements Initializable {
 
             /* Ididisplay na sa GUI yung topics at id */
             displayTopic(topic1,0);
+            id1 = keyList.get(0);
             displayTopic(topic2,1);
+            id2 = keyList.get(1);
             displayTopic(topic3,2);
+            id3 = keyList.get(2);
             displayTopic(topic4,3);
+            id4 = keyList.get(3);
             displayTopic(topic5,4);
+            id5 = keyList.get(4);
             topicNumber = 5;
         } catch (ExecutionException | InterruptedException ex) {
             ex.printStackTrace();

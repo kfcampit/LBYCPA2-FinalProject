@@ -3,8 +3,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.Login">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.LoginController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -13,7 +14,9 @@
       <TextField fx:id="username" layoutX="186.0" layoutY="155.0" prefHeight="25.0" prefWidth="240.0" style="-fx-background-color: #EBE0CF;" />
       <TextField fx:id="password_text" layoutX="186.0" layoutY="191.0" prefHeight="25.0" prefWidth="240.0" style="-fx-background-color: #EBE0CF;" />
       <PasswordField fx:id="password_hidden" layoutX="186.0" layoutY="191.0" prefHeight="25.0" prefWidth="240.0" style="-fx-background-color: #EBE0CF;" />
-      <Button fx:id="loginButton" layoutX="250.0" layoutY="250.0" mnemonicParsing="false" onAction="#onLoginButtonClick" stylesheets="@submit_button.css" text="log  in" />
+      <Button fx:id="registerButton" layoutX="197.0" layoutY="251.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" stylesheets="@submit_button.css" text="Register" />
       <CheckBox fx:id="showPassword" layoutX="186.0" layoutY="220.0" mnemonicParsing="false" onAction="#togglevisiblePassword" text="Show Password" textFill="WHITE" />
+      <Button fx:id="loginButton1" layoutX="305.0" layoutY="251.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="45.0" prefWidth="98.0" stylesheets="@submit_button.css" text="Login" />
+      <Text fx:id="errorText" fill="WHITE" layoutX="205.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account already exists" textAlignment="CENTER" visible="false" wrappingWidth="191.0" />
    </children>
 </AnchorPane>
