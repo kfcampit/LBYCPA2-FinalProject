@@ -5,6 +5,7 @@ import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -51,7 +52,7 @@ public class SummaryController extends CreateController implements Initializable
     @FXML
     void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException {
         questionNum++;
-        errorPrev.toBack();
+        //errorPrev.toBack();
         displayInfo(questionNum);
     }
 
@@ -60,6 +61,10 @@ public class SummaryController extends CreateController implements Initializable
         questionNum--;
         if(questionNum<0) {
             errorPrev.toFront();
+            Alert alert = new Alert (Alert.AlertType.NONE);
+            alert.setAlertType(Alert.AlertType.INFORMATION);
+            alert.setContentText("ERROR! This is the First Question.");
+            alert.show();
             questionNum = 0;
         }
         else displayInfo(questionNum);

@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class LeaderboardController {
+import java.io.IOException;
+
+public class LeaderboardController extends Main{
 
     @FXML
     private Label name1;
@@ -41,8 +43,9 @@ public class LeaderboardController {
     private Label score5;
 
     @FXML
-    void onClickBack(ActionEvent event) {
-        System.out.println("Back");
+    void onClickBack(ActionEvent event) throws IOException {
+        //System.out.println("Back");
+        setRoot("Main");
     }
 
 }

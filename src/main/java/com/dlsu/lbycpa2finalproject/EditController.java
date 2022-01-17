@@ -6,7 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class EditController {
+import java.io.IOException;
+
+public class EditController extends Main{
 
     @FXML
     private TextField choice1;
@@ -39,8 +41,9 @@ public class EditController {
     private Button search;
 
     @FXML
-    void onClickBack(ActionEvent event) {
-        System.out.println("back");
+    void onClickBack(ActionEvent event) throws IOException {
+        //System.out.println("back");
+        setRoot("Main");
     }
 
     @FXML

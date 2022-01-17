@@ -74,8 +74,9 @@ public class CreateController extends Main {
     }
 
     @FXML
-    void onClickBack(ActionEvent event) {
-        System.out.println("back");
+    void onClickBack(ActionEvent event) throws IOException {
+        //System.out.println("back");
+        setRoot("Main");
     }
 
     @FXML
