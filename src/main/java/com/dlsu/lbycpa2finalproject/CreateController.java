@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreateController extends Main {
-    public String topicStr;
     private static String quizID = "";
 
     QuizController qc = new QuizController();
@@ -53,6 +52,7 @@ public class CreateController extends Main {
     @FXML
     public void onClickAdd(ActionEvent event) {
         QuestionObject temp = new QuestionObject();
+        boolean hasRepeat = false;
         boolean found = false;
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
         temp.setChoices(choices);
@@ -80,7 +80,6 @@ public class CreateController extends Main {
 
     @FXML
     void onClickSubmit(ActionEvent event) throws IOException {
-        topicStr = topic.getText();
         QuestionObject temp = new QuestionObject();
         boolean found = false;
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};

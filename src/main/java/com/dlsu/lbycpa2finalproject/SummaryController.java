@@ -5,9 +5,11 @@ import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
@@ -17,6 +19,9 @@ public class SummaryController extends CreateController implements Initializable
     private String quizID;
     private QuizObject qz;
     private QuizController qc = new QuizController();
+    @FXML
+    private Label errorPrev;
+
     @FXML
     private TextField displayChoice1;
 
@@ -39,34 +44,36 @@ public class SummaryController extends CreateController implements Initializable
     private TextArea displayTopic;
 
     @FXML
-    void onClickMainMenu(ActionEvent event) {
-        System.out.println("main");
+    void onClickMainMenu(ActionEvent event) throws IOException {
+        setRoot("Main");
     }
 
     @FXML
     void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException {
-        displayInfo(questionNum);
         questionNum++;
-        System.out.println("next");
+        errorPrev.toBack();
+        displayInfo(questionNum);
     }
 
     @FXML
     void onClickPrevious(ActionEvent event) throws ExecutionException, InterruptedException {
-        displayInfo(questionNum);
         questionNum--;
-        System.out.println("prev");
+        if(questionNum<0) {
+            errorPrev.toFront();
+            questionNum = 0;
+        }
+        else displayInfo(questionNum);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         quizID = CreateController.getQuizID();
-        displayTopic.setText(topicStr);
+        displayTopic.setText(qz.getTopic()); /* paayos neto nagiging null yung qz.getTopic() */
         try {
             displayInfo(questionNum);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        questionNum++;
     }
 
     void displayInfo(int questionNum) throws ExecutionException, InterruptedException {
