@@ -45,36 +45,14 @@ public class QuizListController extends Main implements Initializable {
 
     @FXML
     void onClickPrev(ActionEvent event) throws ExecutionException, InterruptedException {
-        topicNumber -= 5;
-        for (int i = 0; i < 5; i++) {
-            if(topicNumber < keyList.size()){
-                switch (i) {
-                    case 0 -> displayTopic(topic5, topicNumber);
-                    case 1 -> displayTopic(topic4, topicNumber);
-                    case 2 -> displayTopic(topic3, topicNumber);
-                    case 3 -> displayTopic(topic2, topicNumber);
-                    default -> displayTopic(topic1, topicNumber);
-                }
-            }
-            else{
-                switch (i) {
-                    case 0 -> topic5.setText("");
-                    case 1 -> topic4.setText("");
-                    case 2 -> topic3.setText("");
-                    case 3 -> topic2.setText("");
-                    default -> topic1.setText("");
-                }
-            }
-            topicNumber--;
+        int temp = topicNumber; /* Pangcheck lang to for error */
+        temp -= 10;
+        if(temp < 0){
+            System.out.println("ERROR! This is the First Set of Quizzes");
+            return;
         }
-        System.out.println(topicNumber);
-        if(topicNumber < 0){
-            System.out.println("ERROR");
-        }
-    }
 
-    @FXML
-    void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException {
+        topicNumber -= 10;
         for (int i = 0; i < 5; i++) {
             if(topicNumber < keyList.size()){
                 switch (i) {
@@ -96,7 +74,35 @@ public class QuizListController extends Main implements Initializable {
             }
             topicNumber++;
         }
-        System.out.println(topicNumber);
+    }
+
+    @FXML
+    void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException {
+        if(topicNumber > keyList.size()){
+            System.out.println("ERROR! This is the Last Set of Quizzes");
+            return;
+        }
+
+        for (int i = 0; i < 5; i++) {
+            if (topicNumber < keyList.size()) {
+                switch (i) {
+                    case 0 -> displayTopic(topic1, topicNumber);
+                    case 1 -> displayTopic(topic2, topicNumber);
+                    case 2 -> displayTopic(topic3, topicNumber);
+                    case 3 -> displayTopic(topic4, topicNumber);
+                    default -> displayTopic(topic5, topicNumber);
+                }
+            } else {
+                switch (i) {
+                    case 0 -> topic1.setText("");
+                    case 1 -> topic2.setText("");
+                    case 2 -> topic3.setText("");
+                    case 3 -> topic4.setText("");
+                    default -> topic5.setText("");
+                }
+            }
+            topicNumber++;
+        }
     }
 
     @Override
