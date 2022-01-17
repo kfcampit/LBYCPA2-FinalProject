@@ -4,6 +4,8 @@ import com.dlsu.lbycpa2finalproject.backend.QuizController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
@@ -17,6 +19,7 @@ import java.util.concurrent.ExecutionException;
 public class QuizListController extends Main implements Initializable {
     ArrayList<String> keyList = new ArrayList<>(); /* Dito is-store mga keys na nasa database */
     QuizController qc = new QuizController();
+    Alert alert = new Alert (Alert.AlertType.NONE);
     int topicNumber = 0;
 
     @FXML
@@ -35,6 +38,9 @@ public class QuizListController extends Main implements Initializable {
     private Label topic5;
 
     @FXML
+    private Button prev, next;
+
+    @FXML
     void onClickHome(ActionEvent event) throws IOException {
         setRoot("Main");
     }
@@ -48,7 +54,10 @@ public class QuizListController extends Main implements Initializable {
         int temp = topicNumber; /* Pangcheck lang to for error */
         temp -= 10;
         if(temp < 0){
-            System.out.println("ERROR! This is the First Set of Quizzes");
+            //System.out.println("ERROR! This is the First Set of Quizzes");
+            alert.setAlertType(Alert.AlertType.WARNING);
+            alert.setContentText("This is the Last Set of Quizzes.");
+            alert.show();
             return;
         }
 
@@ -79,7 +88,10 @@ public class QuizListController extends Main implements Initializable {
     @FXML
     void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException {
         if(topicNumber > keyList.size()){
-            System.out.println("ERROR! This is the Last Set of Quizzes");
+            //System.out.println("ERROR! This is the Last Set of Quizzes");
+            alert.setAlertType(Alert.AlertType.WARNING);
+            alert.setContentText("This is the Last Set of Quizzes.");
+            alert.show();
             return;
         }
 
