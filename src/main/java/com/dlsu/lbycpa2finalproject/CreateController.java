@@ -121,21 +121,43 @@ public class CreateController extends Main {
     @FXML
     void onClickSubmit(ActionEvent event) throws IOException {
         QuestionObject temp = new QuestionObject();
-        boolean found = false;
+        boolean hasRepeat = false; /* Flag para malaman kung kelan ib-break yung loop pag may similar choices */
+        boolean canProceed = false; /* Kung pwede na iadd yung question */
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
+        List<String> choicesList = Arrays.asList(choices); /* Para lang magamit ko yung .contains() function sa paghanap ng error */
         temp.setChoices(choices);
         temp.setQuestion(inputQuestion.getText());
         temp.setPointWeight(1);
         for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
-            if(choices[i].equals(correctAnswer.getText())) {
-                temp.setAnswer(i);
-                found = true;
+            if(!choicesList.contains(correctAnswer.getText())){
+                alert.setAlertType(Alert.AlertType.ERROR);
+                alert.setContentText("Correct Answer Not in Choices.");
+                alert.show();
+                canProceed = false;
+                break;
+                //errorMsg.toFront();
             }
+            else if(correctAnswer.getText().equals(choices[i])){
+                canProceed = true;
+                temp.setAnswer(i);
+            }
+            for (int j = 0; j < choices.length; j++) { /* Compare each element kung may mag-repeat na choice */
+                if(choices[i].equals(choices[j]) && i!=j) {
+                    canProceed = false;
+                    hasRepeat = true;
+                    alert.setAlertType(Alert.AlertType.ERROR);
+                    alert.setContentText("There Are Similar Choices.");
+                    alert.show();
+                    //errorSimilar.toFront();
+                    break;
+                }
+            }
+            if(hasRepeat) break;
         }
 
         quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
 
-        if(found) {
+        if(canProceed) {
             try {
                 ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
                 temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
@@ -143,22 +165,18 @@ public class CreateController extends Main {
                 temp.setImageURL("");
             }
             qn.add(temp);
+
+            qz.setID(quizID);
+            id++;
+            qz.setTopic(topic.getText());
+            qz.setQuestions(qn);
+            qc.manageQuiz(qz);
+            topic.clear();
             clearScene();
+
+            setRoot("Summary");
         }
-        else{
-            errorMsg.toFront();
-        }
-        qz.setID(quizID);
-        id++;
-        qz.setTopic(topic.getText());
-        qz.setQuestions(qn);
-        qc.manageQuiz(qz);
-        topic.clear();
-        clearScene();
 
-
-
-        setRoot("Summary");
     }
 
     void clearScene(){
