@@ -15,8 +15,9 @@ import java.util.concurrent.ExecutionException;
 
 public class AnswerController extends QuizListController implements Initializable {
     QuizObject qz;
-    private int item = 0, MAX_LENGTH;
-    public static int currentScore = 0;
+    public int item = 0;
+    public float MAX_LENGTH;
+    public static float currentScore = 0;
 
     @FXML
     private Button redOption, blueOption, yellowOption, greenOption;
@@ -68,7 +69,7 @@ public class AnswerController extends QuizListController implements Initializabl
                     score.setText(String.valueOf(currentScore));
                     setRoot("AnswerSummary");
                 }
-                else {
+                else if (item < MAX_LENGTH-1) {
                     currentScore = currentScore + weight;
                     score.setText(String.valueOf(currentScore));
                     item++;
@@ -77,8 +78,13 @@ public class AnswerController extends QuizListController implements Initializabl
             }
             else if (!correctAnswer.equals("0")) {
                 System.out.println("Wrong");
-                item++;
-                changeQuestion(item);
+                if (item == MAX_LENGTH-1) {
+                    setRoot("AnswerSummary");
+                }
+                else if (item < MAX_LENGTH-1) {
+                    item++;
+                    changeQuestion(item);
+                }
             }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -98,7 +104,7 @@ public class AnswerController extends QuizListController implements Initializabl
                     score.setText(String.valueOf(currentScore));
                     setRoot("AnswerSummary");
                 }
-                else {
+                else if (item < MAX_LENGTH-1) {
                     currentScore = currentScore + weight;
                     score.setText(String.valueOf(currentScore));
                     item++;
@@ -107,8 +113,13 @@ public class AnswerController extends QuizListController implements Initializabl
             }
             else if (!correctAnswer.equals("1")) {
                 System.out.println("Wrong");
-                item++;
-                changeQuestion(item);
+                if (item == MAX_LENGTH-1) {
+                    setRoot("AnswerSummary");
+                }
+                else if (item < MAX_LENGTH-1) {
+                    item++;
+                    changeQuestion(item);
+                }
             }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -128,7 +139,7 @@ public class AnswerController extends QuizListController implements Initializabl
                     score.setText(String.valueOf(currentScore));
                     setRoot("AnswerSummary");
                 }
-                else {
+                else if (item < MAX_LENGTH-1) {
                     currentScore = currentScore + weight;
                     score.setText(String.valueOf(currentScore));
                     item++;
@@ -137,8 +148,13 @@ public class AnswerController extends QuizListController implements Initializabl
             }
             else if (!correctAnswer.equals("2")) {
                 System.out.println("Wrong");
-                item++;
-                changeQuestion(item);
+                if (item == MAX_LENGTH-1) {
+                    setRoot("AnswerSummary");
+                }
+                else if (item < MAX_LENGTH-1) {
+                    item++;
+                    changeQuestion(item);
+                }
             }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -158,7 +174,7 @@ public class AnswerController extends QuizListController implements Initializabl
                     score.setText(String.valueOf(currentScore));
                     setRoot("AnswerSummary");
                 }
-                else {
+                else if (item < MAX_LENGTH-1) {
                     currentScore = currentScore + weight;
                     score.setText(String.valueOf(currentScore));
                     item++;
@@ -167,8 +183,13 @@ public class AnswerController extends QuizListController implements Initializabl
             }
             else if (!correctAnswer.equals("3")) {
                 System.out.println("Wrong");
-                item++;
-                changeQuestion(item);
+                if (item == MAX_LENGTH-1) {
+                    setRoot("AnswerSummary");
+                }
+                else if (item < MAX_LENGTH-1) {
+                    item++;
+                    changeQuestion(item);
+                }
             }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -179,6 +200,7 @@ public class AnswerController extends QuizListController implements Initializabl
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             qz = qc.getQuiz(clickedId);
+            System.out.println(qz.getNumberQuestions());
             userQuestion.setText(qz.getQuestionList().get(0).getQuestion());
             topic.setText(qz.getTopic());
             String[] choices = qz.getQuestionList().get(0).getChoices();

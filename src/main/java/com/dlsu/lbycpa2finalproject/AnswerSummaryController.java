@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,12 +16,24 @@ public class AnswerSummaryController extends AnswerController {
     QuestionObject qz;
 
     @FXML
-    private Label finalScore;
+    private Label finalScore, pass_message, fail_message;
+
+    @FXML
+    private ImageView bg;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            if (currentScore < (MAX_LENGTH/2)) {
+                //bg.setImage(new Image("Quiztify_fail.gif"));
+                fail_message.setVisible(true);
+            }
+            if (currentScore > (MAX_LENGTH/2)) {
+                //bg.setImage(new Image("Quiztify_pass.gif"));
+                pass_message.setVisible(true);
+            }
             finalScore.setText(String.valueOf(currentScore));
+            currentScore = 0;
         } catch (Exception e) {
             e.printStackTrace();
         }
