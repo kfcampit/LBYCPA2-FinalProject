@@ -168,6 +168,7 @@ public class CreateController extends Main {
             qz.setID(quizID);
             id++;
             qz.setTopic(topic.getText());
+            System.out.println(qz.getTopic());
             qz.setQuestions(qn);
             qc.manageQuiz(qz);
             topic.clear();
