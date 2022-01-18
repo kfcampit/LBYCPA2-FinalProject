@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 
 public class AnswerController extends QuizListController implements Initializable {
     QuizObject qz;
-    private int item = 0;
+    private int item = 0, currentScore = 0;
 
     @FXML
     private Button redOption, blueOption, yellowOption, greenOption;
@@ -57,12 +57,13 @@ public class AnswerController extends QuizListController implements Initializabl
     void onClickRedOption(ActionEvent event) {
         try {
             qz = qc.getQuiz(clickedId);
-            int currentScore = 0, weight = qz.getQuestionList().get(item).getPointWeight();
+            int weight = qz.getQuestionList().get(item).getPointWeight();
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
             if (correctAnswer.equals("0")) {
                 item++;
                 changeQuestion(item);
-                score.setText(String.valueOf(currentScore+weight));
+                currentScore = currentScore+weight;
+                score.setText(String.valueOf(currentScore));
             }
             else {
                 System.out.println("Wrong");
@@ -78,12 +79,13 @@ public class AnswerController extends QuizListController implements Initializabl
     void onClickBlueOption(ActionEvent event) {
         try {
             qz = qc.getQuiz(clickedId);
-            int currentScore = 0, weight = qz.getQuestionList().get(item).getPointWeight();
+            int weight = qz.getQuestionList().get(item).getPointWeight();
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
             if (correctAnswer.equals("1")) {
                 item++;
                 changeQuestion(item);
-                score.setText(String.valueOf(currentScore+weight));
+                currentScore = currentScore+weight;
+                score.setText(String.valueOf(currentScore));
             }
             else {
                 System.out.println("Wrong");
@@ -99,12 +101,13 @@ public class AnswerController extends QuizListController implements Initializabl
     void onClickYellowOption(ActionEvent event) {
         try {
             qz = qc.getQuiz(clickedId);
-            int currentScore = 0, weight = qz.getQuestionList().get(item).getPointWeight();
+            int weight = qz.getQuestionList().get(item).getPointWeight();
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
             if (correctAnswer.equals("1")) {
                 item++;
                 changeQuestion(item);
-                score.setText(String.valueOf(currentScore+weight));
+                currentScore = currentScore+weight;
+                score.setText(String.valueOf(currentScore));
             }
             else {
                 System.out.println("Wrong");
@@ -120,12 +123,13 @@ public class AnswerController extends QuizListController implements Initializabl
     void onClickGreenOption(ActionEvent event) {
         try {
             qz = qc.getQuiz(clickedId);
-            int currentScore = 0, weight = qz.getQuestionList().get(item).getPointWeight();
+            int weight = qz.getQuestionList().get(item).getPointWeight();
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
             if (correctAnswer.equals("3")) {
                 item++;
                 changeQuestion(item);
-                score.setText(String.valueOf(currentScore+weight));
+                currentScore = currentScore+weight;
+                score.setText(String.valueOf(currentScore));
             }
             else {
                 System.out.println("Wrong");
