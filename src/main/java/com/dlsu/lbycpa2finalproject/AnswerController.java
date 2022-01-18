@@ -8,16 +8,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
 public class AnswerController extends QuizListController implements Initializable {
     QuizObject qz;
-    private int item = 0, currentScore = 0;
+    private int item = 0, MAX_LENGTH;
+    public static int currentScore = 0;
 
     @FXML
     private Button redOption, blueOption, yellowOption, greenOption;
@@ -26,7 +25,10 @@ public class AnswerController extends QuizListController implements Initializabl
     private ImageView imageView;
 
     @FXML
-    private Label userQuestion, score, topic; /* dito lalabas yung question, score, at topic ng user */
+    private Label userQuestion, topic; /* dito lalabas yung question at topic ng user */
+
+    @FXML
+    public Label score;
 
     @FXML
     void onClickQuit(ActionEvent event) throws IOException {
@@ -54,18 +56,26 @@ public class AnswerController extends QuizListController implements Initializabl
     }
 
     @FXML
-    void onClickRedOption(ActionEvent event) {
+    void onClickRedOption(ActionEvent event) throws IOException {
         try {
             qz = qc.getQuiz(clickedId);
             int weight = qz.getQuestionList().get(item).getPointWeight();
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
+            MAX_LENGTH = qz.getNumberQuestions();
             if (correctAnswer.equals("0")) {
-                item++;
-                changeQuestion(item);
-                currentScore = currentScore+weight;
-                score.setText(String.valueOf(currentScore));
+                if (item == MAX_LENGTH-1) {
+                    currentScore = currentScore + weight;
+                    score.setText(String.valueOf(currentScore));
+                    setRoot("AnswerSummary");
+                }
+                else {
+                    currentScore = currentScore + weight;
+                    score.setText(String.valueOf(currentScore));
+                    item++;
+                    changeQuestion(item);
+                }
             }
-            else {
+            else if (!correctAnswer.equals("0")) {
                 System.out.println("Wrong");
                 item++;
                 changeQuestion(item);
@@ -76,18 +86,26 @@ public class AnswerController extends QuizListController implements Initializabl
     }
 
     @FXML
-    void onClickBlueOption(ActionEvent event) {
+    void onClickBlueOption(ActionEvent event) throws IOException {
         try {
             qz = qc.getQuiz(clickedId);
             int weight = qz.getQuestionList().get(item).getPointWeight();
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
+            MAX_LENGTH = qz.getNumberQuestions();
             if (correctAnswer.equals("1")) {
-                item++;
-                changeQuestion(item);
-                currentScore = currentScore+weight;
-                score.setText(String.valueOf(currentScore));
+                if (item == MAX_LENGTH-1) {
+                    currentScore = currentScore + weight;
+                    score.setText(String.valueOf(currentScore));
+                    setRoot("AnswerSummary");
+                }
+                else {
+                    currentScore = currentScore + weight;
+                    score.setText(String.valueOf(currentScore));
+                    item++;
+                    changeQuestion(item);
+                }
             }
-            else {
+            else if (!correctAnswer.equals("1")) {
                 System.out.println("Wrong");
                 item++;
                 changeQuestion(item);
@@ -98,18 +116,26 @@ public class AnswerController extends QuizListController implements Initializabl
     }
 
     @FXML
-    void onClickYellowOption(ActionEvent event) {
+    void onClickYellowOption(ActionEvent event) throws IOException {
         try {
             qz = qc.getQuiz(clickedId);
             int weight = qz.getQuestionList().get(item).getPointWeight();
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
-            if (correctAnswer.equals("1")) {
-                item++;
-                changeQuestion(item);
-                currentScore = currentScore+weight;
-                score.setText(String.valueOf(currentScore));
+            MAX_LENGTH = qz.getNumberQuestions();
+            if (correctAnswer.equals("2")) {
+                if (item == MAX_LENGTH-1) {
+                    currentScore = currentScore + weight;
+                    score.setText(String.valueOf(currentScore));
+                    setRoot("AnswerSummary");
+                }
+                else {
+                    currentScore = currentScore + weight;
+                    score.setText(String.valueOf(currentScore));
+                    item++;
+                    changeQuestion(item);
+                }
             }
-            else {
+            else if (!correctAnswer.equals("2")) {
                 System.out.println("Wrong");
                 item++;
                 changeQuestion(item);
@@ -120,18 +146,26 @@ public class AnswerController extends QuizListController implements Initializabl
     }
 
     @FXML
-    void onClickGreenOption(ActionEvent event) {
+    void onClickGreenOption(ActionEvent event) throws IOException {
         try {
             qz = qc.getQuiz(clickedId);
             int weight = qz.getQuestionList().get(item).getPointWeight();
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
+            MAX_LENGTH = qz.getNumberQuestions();
             if (correctAnswer.equals("3")) {
-                item++;
-                changeQuestion(item);
-                currentScore = currentScore+weight;
-                score.setText(String.valueOf(currentScore));
+                if (item == MAX_LENGTH-1) {
+                    currentScore = currentScore + weight;
+                    score.setText(String.valueOf(currentScore));
+                    setRoot("AnswerSummary");
+                }
+                else {
+                    currentScore = currentScore + weight;
+                    score.setText(String.valueOf(currentScore));
+                    item++;
+                    changeQuestion(item);
+                }
             }
-            else {
+            else if (!correctAnswer.equals("3")) {
                 System.out.println("Wrong");
                 item++;
                 changeQuestion(item);
