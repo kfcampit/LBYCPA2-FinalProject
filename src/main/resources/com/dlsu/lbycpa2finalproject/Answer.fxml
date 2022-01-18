@@ -71,9 +71,29 @@
             <Font name="BebasNeue" size="21.0" />
          </font>
       </Button>
-      <Label fx:id="userQuestion" layoutX="26.0" layoutY="184.0" prefHeight="252.0" prefWidth="591.0" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="userQuestion" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="170.0" prefHeight="73.0" prefWidth="556.0" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="topic" layoutX="108.0" layoutY="126.0" prefHeight="17.0" prefWidth="493.0">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <ImageView fx:id="imageView" fitHeight="195.0" fitWidth="556.0" layoutX="43.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
+        <Button layoutX="272.0" layoutY="61.0" mnemonicParsing="false" onAction="#onClickQuit" prefHeight="2.0" prefWidth="98.0" stylesheets="@back_button.css" text="quit">
+            <font>
+                <Font name="BebasNeue" size="12.0" />
+            </font>
+        </Button>
+      <Label fx:id="score" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="97.0" layoutY="41.0" prefHeight="27.0" prefWidth="65.0" text="0" textAlignment="RIGHT" textFill="#d7c6ae">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="474.0" layoutY="41.0" prefHeight="27.0" prefWidth="65.0" text="0" textAlignment="RIGHT" textFill="#d7c6ae">
+         <font>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
     </children>
