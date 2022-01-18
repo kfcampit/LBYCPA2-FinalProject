@@ -269,16 +269,7 @@ public class QuizListController extends Main implements Initializable {
             Collections.sort(keyList); /* Pang-sort lang ng arrayList since random yung order ng elements */
 
             /* Ididisplay na sa GUI yung topics at id */
-            displayTopic(topic1,0);
-            id1 = keyList.get(0);
-            displayTopic(topic2,1);
-            id2 = keyList.get(1);
-            displayTopic(topic3,2);
-            id3 = keyList.get(2);
-            displayTopic(topic4,3);
-            id4 = keyList.get(3);
-            displayTopic(topic5,4);
-            id5 = keyList.get(4);
+            updateList();
             topicNumber = 5;
         } catch (ExecutionException | InterruptedException ex) {
             ex.printStackTrace();
