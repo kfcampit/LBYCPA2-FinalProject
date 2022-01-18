@@ -200,6 +200,7 @@ public class AnswerController extends QuizListController implements Initializabl
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             qz = qc.getQuiz(clickedId);
+            System.out.println(qz.getNumberQuestions());
             userQuestion.setText(qz.getQuestionList().get(0).getQuestion());
             topic.setText(qz.getTopic());
             String[] choices = qz.getQuestionList().get(0).getChoices();
