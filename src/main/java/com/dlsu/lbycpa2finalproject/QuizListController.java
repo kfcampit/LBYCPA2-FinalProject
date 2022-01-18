@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,26 +32,119 @@ public class QuizListController extends Main implements Initializable {
 
     @FXML
     private Label topic1;
-
     @FXML
     private Label topic2;
-
     @FXML
     private Label topic3;
-
     @FXML
     private Label topic4;
-
     @FXML
     private Label topic5;
+
+    @FXML
+    private Button go1;
+    @FXML
+    private Button go2;
+    @FXML
+    private Button go3;
+    @FXML
+    private Button go4;
+    @FXML
+    private Button go5;
+
+    @FXML
+    private ImageView del1;
+    @FXML
+    private ImageView del2;
+    @FXML
+    private ImageView del3;
+    @FXML
+    private ImageView del4;
+    @FXML
+    private ImageView del5;
 
     @FXML
     void onClickHome(ActionEvent event) throws IOException {
         setRoot("Main");
     }
+
+    @FXML
+    void onConvertDelete(MouseEvent event) {
+        go1.toBack();
+        go2.toBack();
+        go3.toBack();
+        go4.toBack();
+        go5.toBack();
+
+        del1.toFront();
+        del2.toFront();
+        del3.toFront();
+        del4.toFront();
+        del5.toFront();
+    }
+
+    @FXML
+    void onConvertLoad(ActionEvent event) {
+        del1.toBack();
+        del2.toBack();
+        del3.toBack();
+        del4.toBack();
+        del5.toBack();
+
+        go1.toFront();
+        go2.toFront();
+        go3.toFront();
+        go4.toFront();
+        go5.toFront();
+    }
+
+    @FXML
+    void onClickDelete1(MouseEvent event) throws ExecutionException, InterruptedException {
+        clickedId = id1;
+        qc.removeQuiz(clickedId);
+        keyList.remove(clickedId);
+        topicNumber -= 5;
+        updateList();
+    }
+
+    @FXML
+    void onClickDelete2(MouseEvent event) throws ExecutionException, InterruptedException {
+        clickedId = id2;
+        qc.removeQuiz(clickedId);
+        keyList.remove(clickedId);
+        topicNumber -= 5;
+        updateList();
+    }
+
+    @FXML
+    void onClickDelete3(MouseEvent event) throws ExecutionException, InterruptedException {
+        clickedId = id3;
+        qc.removeQuiz(clickedId);
+        keyList.remove(clickedId);
+        topicNumber -= 5;
+        updateList();
+    }
+
+    @FXML
+    void onClickDelete4(MouseEvent event) throws ExecutionException, InterruptedException {
+        clickedId = id4;
+        qc.removeQuiz(clickedId);
+        keyList.remove(clickedId);
+        topicNumber -= 5;
+        updateList();
+    }
+
+    @FXML
+    void onClickDelete5(MouseEvent event) throws ExecutionException, InterruptedException {
+        clickedId = id5;
+        qc.removeQuiz(clickedId);
+        keyList.remove(clickedId);
+        topicNumber -= 5;
+        updateList();
+    }
+
     @FXML
     void onClickGo1(ActionEvent event) throws IOException {
-
         clickedId = id1;
         System.out.println(clickedId);
         setRoot("Answer");
@@ -96,57 +191,7 @@ public class QuizListController extends Main implements Initializable {
         }
 
         topicNumber -= 10;
-        for (int i = 0; i < 5; i++) {
-            if(topicNumber < keyList.size()){
-                switch (i) {
-                    case 0 -> {
-                        displayTopic(topic1, topicNumber);
-                        id1 = keyList.get(topicNumber);
-                    }
-                    case 1 -> {
-                        displayTopic(topic2, topicNumber);
-                        id2 = keyList.get(topicNumber);
-                    }
-                    case 2 -> {
-                        displayTopic(topic3, topicNumber);
-                        id3 = keyList.get(topicNumber);
-                    }
-                    case 3 -> {
-                        displayTopic(topic4, topicNumber);
-                        id4 = keyList.get(topicNumber);
-                    }
-                    default -> {
-                        displayTopic(topic5, topicNumber);
-                        id5 = keyList.get(topicNumber);
-                    }
-                }
-            }
-            else{
-                switch (i) {
-                    case 0 -> {
-                        topic1.setText("");
-                        id1 = "";
-                    }
-                    case 1 -> {
-                        topic2.setText("");
-                        id2 = "";
-                    }
-                    case 2 -> {
-                        topic3.setText("");
-                        id3 = "";
-                    }
-                    case 3 -> {
-                        topic4.setText("");
-                        id4 = "";
-                    }
-                    default -> {
-                        topic5.setText("");
-                        id5 = "";
-                    }
-                }
-            }
-            topicNumber++;
-        }
+        updateList();
     }
 
     @FXML
@@ -158,7 +203,10 @@ public class QuizListController extends Main implements Initializable {
             alert.show();
             return;
         }
+        updateList();
+    }
 
+    void updateList() throws ExecutionException, InterruptedException {
         for (int i = 0; i < 5; i++) {
             if (topicNumber < keyList.size()) {
                 switch (i) {

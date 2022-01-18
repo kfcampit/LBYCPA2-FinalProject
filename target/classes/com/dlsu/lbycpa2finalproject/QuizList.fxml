@@ -8,6 +8,31 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.QuizListController">
     <children>
+      <ImageView fx:id="del1" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="193.0" onMouseClicked="#onClickDelete1" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="del2" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="273.0" onMouseClicked="#onClickDelete2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="del3" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="352.0" onMouseClicked="#onClickDelete3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="del4" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="429.0" onMouseClicked="#onClickDelete4" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="del5" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="510.0" onMouseClicked="#onClickDelete5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delete.png" />
+         </image>
+      </ImageView>
         <ImageView fitHeight="699.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@Quiztify_topics.png" />
@@ -20,11 +45,17 @@
         <Label fx:id="topic5" layoutX="136.0" layoutY="517.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
       <Button layoutX="56.0" layoutY="577.0" mnemonicParsing="false" onAction="#onClickPrev" prefHeight="44.0" prefWidth="109.0" stylesheets="@back_button.css" text="Previous" />
       <Button layoutX="483.0" layoutY="577.0" mnemonicParsing="false" onAction="#onClickNext" prefHeight="44.0" prefWidth="109.0" stylesheets="@submit_button.css" text="Next" />
-      <Button layoutX="528.0" layoutY="195.0" mnemonicParsing="false" onAction="#onClickGo1" stylesheets="@submit_button.css" text="Go" />
-      <Button layoutX="528.0" layoutY="274.0" mnemonicParsing="false" onAction="#onClickGo2" stylesheets="@submit_button.css" text="Go" />
-      <Button layoutX="528.0" layoutY="353.0" mnemonicParsing="false" onAction="#onClickGo3" stylesheets="@submit_button.css" text="Go" />
-      <Button layoutX="528.0" layoutY="431.0" mnemonicParsing="false" onAction="#onClickGo4" stylesheets="@submit_button.css" text="Go" />
-      <Button layoutX="528.0" layoutY="511.0" mnemonicParsing="false" onAction="#onClickGo5" stylesheets="@submit_button.css" text="Go" />
+      <Button fx:id="go1" layoutX="528.0" layoutY="195.0" mnemonicParsing="false" onAction="#onClickGo1" stylesheets="@submit_button.css" text="Go" />
+      <Button fx:id="go2" layoutX="528.0" layoutY="274.0" mnemonicParsing="false" onAction="#onClickGo2" stylesheets="@submit_button.css" text="Go" />
+      <Button fx:id="go3" layoutX="528.0" layoutY="353.0" mnemonicParsing="false" onAction="#onClickGo3" stylesheets="@submit_button.css" text="Go" />
+      <Button fx:id="go4" layoutX="528.0" layoutY="431.0" mnemonicParsing="false" onAction="#onClickGo4" stylesheets="@submit_button.css" text="Go" />
+      <Button fx:id="go5" layoutX="528.0" layoutY="511.0" mnemonicParsing="false" onAction="#onClickGo5" stylesheets="@submit_button.css" text="Go" />
+      <Button layoutX="522.0" layoutY="31.0" mnemonicParsing="false" onAction="#onConvertLoad" prefHeight="46.0" prefWidth="91.0" stylesheets="@submit_button.css" text="Load" />
+      <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="436.0" layoutY="18.0" onMouseClicked="#onConvertDelete" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@red_trash_can.png" />
+         </image>
+      </ImageView>
 
     </children>
 </AnchorPane>
