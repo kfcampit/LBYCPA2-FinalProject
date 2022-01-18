@@ -7,10 +7,7 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.firebase.cloud.FirestoreClient;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class AccountController {
@@ -34,8 +31,13 @@ public class AccountController {
 
         numAccounts = hashtable.size();
 
-        if (forLogin && hashtable.containsKey(user) && hashtable.containsValue(pass))
+        if (forLogin && hashtable.containsKey(user) && hashtable.containsValue(pass)) {
+            for (QueryDocumentSnapshot document: documents) {
+                if (Objects.equals(document.getString("username"), user))
+                    setUserID(document.getId());
+            }
             return 1; //Affirm Login
+        }
         if (hashtable.containsKey(user))
             return -1; //User already exists
         return 0; //User does not exist
@@ -76,6 +78,7 @@ public class AccountController {
     }
 
     public Hashtable<String, Object> getCurrentUserData(String userID) throws ExecutionException, InterruptedException {
+        System.out.println(userID);
         return getPlayerStatistics().get(userID);
     }
 
@@ -87,7 +90,7 @@ public class AccountController {
         AccountController.userID = userID;
     }
 
-    public String getUserID() {
+    public static String getUserID() {
         return userID;
     }
 
