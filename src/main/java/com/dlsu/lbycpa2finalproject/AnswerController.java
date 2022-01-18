@@ -33,11 +33,10 @@ public class AnswerController extends QuizListController implements Initializabl
         setRoot("Main");
     }
 
-    public void changeQuestion (int item, int weight, int currentScore) {
+    public void changeQuestion (int item) {
         try {
             qz = qc.getQuiz(clickedId);
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
-            score.setText(String.valueOf(currentScore+weight));
             userQuestion.setText(qz.getQuestionList().get(item).getQuestion());
             topic.setText(qz.getTopic());
             String[] choices = qz.getQuestionList().get(item).getChoices();
@@ -62,10 +61,13 @@ public class AnswerController extends QuizListController implements Initializabl
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
             if (correctAnswer.equals("0")) {
                 item++;
-                changeQuestion(item, weight, currentScore);
+                changeQuestion(item);
+                score.setText(String.valueOf(currentScore+weight));
             }
             else {
                 System.out.println("Wrong");
+                item++;
+                changeQuestion(item);
             }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -80,10 +82,13 @@ public class AnswerController extends QuizListController implements Initializabl
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
             if (correctAnswer.equals("1")) {
                 item++;
-                changeQuestion(item, weight, currentScore);
+                changeQuestion(item);
+                score.setText(String.valueOf(currentScore+weight));
             }
             else {
                 System.out.println("Wrong");
+                item++;
+                changeQuestion(item);
             }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -98,10 +103,13 @@ public class AnswerController extends QuizListController implements Initializabl
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
             if (correctAnswer.equals("1")) {
                 item++;
-                changeQuestion(item, weight, currentScore);
+                changeQuestion(item);
+                score.setText(String.valueOf(currentScore+weight));
             }
             else {
                 System.out.println("Wrong");
+                item++;
+                changeQuestion(item);
             }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -116,10 +124,13 @@ public class AnswerController extends QuizListController implements Initializabl
             String correctAnswer = String.valueOf(qz.getQuestionList().get(item).getAnswer());
             if (correctAnswer.equals("3")) {
                 item++;
-                changeQuestion(item, weight, currentScore);
+                changeQuestion(item);
+                score.setText(String.valueOf(currentScore+weight));
             }
             else {
                 System.out.println("Wrong");
+                item++;
+                changeQuestion(item);
             }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
