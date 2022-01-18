@@ -1,5 +1,6 @@
 package com.dlsu.lbycpa2finalproject;
 
+import com.dlsu.lbycpa2finalproject.backend.AccountController;
 import com.dlsu.lbycpa2finalproject.backend.QuestionObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Hashtable;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
@@ -27,6 +29,29 @@ public class AnswerSummaryController extends AnswerController {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        String userID = AccountController.getUserID();
+        System.out.println(userID);
+
+        AccountController ac = new AccountController();
+        Hashtable<String, Object> userStats = new Hashtable<>();
+
+        System.out.println(userStats);
+
+        try {
+            userStats = ac.getCurrentUserData(userID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(userStats);
+
+        userStats.put("answersCorrect", (int) userStats.get("answersCorrect") + currentScore);
+        userStats.put("answersIncorrect", (int) userStats.get("answersIncorrect") + (MAX_LENGTH - currentScore));
+        userStats.put("quizzesAnswered", (int) userStats.get("quizzesAnswered") + 1);
+
+        ac.updateCurrentUserData(userID, userStats);
+
         try {
             if (currentScore < (MAX_LENGTH/2.0)) {
                 System.out.println("FAIL");

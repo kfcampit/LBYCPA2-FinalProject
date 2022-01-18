@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import org.w3c.dom.Element;
 
 import java.io.IOException;
 import java.util.*;
@@ -54,7 +53,7 @@ public class LeaderboardController extends Main{
     }
 
     private List<String> sortHash(Hashtable<String, Hashtable<String, Object>> hashtable) {
-        Hashtable<Integer, String> temp = new Hashtable<>();
+        Hashtable<String, Integer> temp = new Hashtable<>();
         List<String> sorted = new ArrayList<>();
         String curr;
 
@@ -63,25 +62,27 @@ public class LeaderboardController extends Main{
         while (stringIterator.hasNext()) {
             curr = stringIterator.next();
             System.out.println(curr);
-            temp.put((Integer) hashtable.get(curr).get("answersCorrect"), curr);
+            temp.put(curr, (Integer) hashtable.get(curr).get("answersCorrect"));
         }
 
-        Set<Integer> keys = temp.keySet();
-        Iterator<Integer> itr = keys.iterator();
-        System.out.println(temp);
+        return sortValue(temp);
+    }
 
-        while (itr.hasNext()) {
-            Integer i = itr.next();
+    public ArrayList<String> sortValue(Hashtable<String, Integer> hash){
+        ArrayList<String> sortedKeys = new ArrayList<>();
 
-            if (sorted.size() > 4) {
-                itr.remove();
-            }
+        //Transfer as List and sort it
+        ArrayList<Map.Entry<String, Integer>> sorted = new ArrayList(hash.entrySet());
+        Collections.sort(sorted, new Comparator<Map.Entry<String, Integer>>(){
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o1.getValue().compareTo(o2.getValue());
+            }});
 
-            System.out.println(temp.get(i));
-            sorted.add(temp.get(i));
+        for (int i = sorted.size() - 1; i >= 0; i--) {
+            sortedKeys.add(sorted.get(i).getKey());
         }
 
-        return sorted;
+        return sortedKeys;
     }
 
     public void initialize() throws ExecutionException, InterruptedException {
