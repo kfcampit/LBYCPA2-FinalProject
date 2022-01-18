@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class CreateController extends Main {
     private static String quizID = "";
@@ -60,119 +61,85 @@ public class CreateController extends Main {
     @FXML
     private ImageView imageView;
 
-    public CreateController() {
+    public boolean getInfo() {
+        quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
+        temp = new QuestionObject();
+        String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
+
+        if (checkValidity(choices)) {
+            temp.setChoices(choices);
+            temp.setQuestion(inputQuestion.getText());
+            temp.setPointWeight(1);
+
+            //System.out.println("ImageView: " + imageView.getImage().getUrl().replaceAll("file:/", "").replaceAll("/", "\\"));
+            System.out.println("Selected File: " + selectedFile);
+
+            try {
+                ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
+                temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
+            } catch (RuntimeException | IOException e) {
+                temp.setImageURL("");
+            }
+
+            selectedFile = null;
+            return true;
+        }
+
+        selectedFile = null;
+        return false;
+    }
+
+    public boolean checkValidity(String[] choices) {
+        List<String> choicesList = Arrays.asList(choices);
+
+        if (!choicesList.contains(correctAnswer.getText())){
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Correct Answer Not in Choices.");
+            alert.show();
+            return false;
+            //errorMsg.toFront();
+        }
+
+        for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
+            if(correctAnswer.getText().equals(choices[i])){
+                for (int j = 0; j < choices.length; j++) { /* Compare each element kung may mag-repeat na choice */
+                    if (choices[i].equals(choices[j]) && i != j) {
+                        alert.setAlertType(Alert.AlertType.ERROR);
+                        alert.setContentText("There Are Similar Choices.");
+                        alert.show();
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     @FXML
     public void onClickAdd(ActionEvent event) throws IOException {
-        quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
-        QuestionObject temp = new QuestionObject();
-        boolean hasRepeat = false; /* Flag para malaman kung kelan ib-break yung loop pag may similar choices */
-        boolean canProceed = false; /* Kung pwede na iadd yung question */
-        String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
-        List<String> choicesList = Arrays.asList(choices); /* Para lang magamit ko yung .contains() function sa paghanap ng error */
-        temp.setChoices(choices);
-        temp.setQuestion(inputQuestion.getText());
-        temp.setPointWeight(1);
-        for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
-            if(!choicesList.contains(correctAnswer.getText())){
-                alert.setAlertType(Alert.AlertType.ERROR);
-                alert.setContentText("Correct Answer Not in Choices.");
-                alert.show();
-                canProceed = false;
-                break;
-                //errorMsg.toFront();
-            }
-            else if(correctAnswer.getText().equals(choices[i])){
-                canProceed = true;
-                temp.setAnswer(i);
-            }
-            for (int j = 0; j < choices.length; j++) { /* Compare each element kung may mag-repeat na choice */
-                if(choices[i].equals(choices[j]) && i!=j) {
-                    canProceed = false;
-                    hasRepeat = true;
-                    alert.setAlertType(Alert.AlertType.ERROR);
-                    alert.setContentText("There Are Similar Choices.");
-                    alert.show();
-                    //errorSimilar.toFront();
-                    break;
-                }
-            }
-            if(hasRepeat) break;
-        }
-        if(canProceed) {
-            try {
-                ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
-                temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
-            } catch (RuntimeException e) {
-                temp.setImageURL("");
-            }
+        if (getInfo()) {
             qn.add(temp);
+
+            if (!Objects.equals(topic.getText(), ""))
+                qz.setTopic(topic.getText());
             clearScene();
         }
-    }
-
-    @FXML
-    void onClickHome(ActionEvent event) throws IOException {
-        //System.out.println("back");
-        setRoot("Main");
     }
 
     @FXML
     void onClickSubmit(ActionEvent event) throws IOException {
-        quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
-        QuestionObject temp = new QuestionObject();
-        boolean hasRepeat = false; /* Flag para malaman kung kelan ib-break yung loop pag may similar choices */
-        boolean canProceed = false; /* Kung pwede na iadd yung question */
-        String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
-        List<String> choicesList = Arrays.asList(choices); /* Para lang magamit ko yung .contains() function sa paghanap ng error */
-        temp.setChoices(choices);
-        temp.setQuestion(inputQuestion.getText());
-        temp.setPointWeight(1);
-        for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
-            if(!choicesList.contains(correctAnswer.getText())){
-                alert.setAlertType(Alert.AlertType.ERROR);
-                alert.setContentText("Correct Answer Not in Choices.");
-                alert.show();
-                canProceed = false;
-                break;
-                //errorMsg.toFront();
-            }
-            else if(correctAnswer.getText().equals(choices[i])){
-                canProceed = true;
-                temp.setAnswer(i);
-            }
-            for (int j = 0; j < choices.length; j++) { /* Compare each element kung may mag-repeat na choice */
-                if(choices[i].equals(choices[j]) && i!=j) {
-                    canProceed = false;
-                    hasRepeat = true;
-                    alert.setAlertType(Alert.AlertType.ERROR);
-                    alert.setContentText("There Are Similar Choices.");
-                    alert.show();
-                    //errorSimilar.toFront();
-                    break;
-                }
-            }
-            if(hasRepeat) break;
-        }
-
-        if(canProceed) {
-            try {
-                ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
-                temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
-            } catch (RuntimeException e) {
-                temp.setImageURL("");
-            }
+        if(getInfo()) {
             qn.add(temp);
-
             qz.setID(quizID);
             id++;
-            qz.setTopic(topic.getText());
+
+            if (!Objects.equals(topic.getText(), ""))
+                qz.setTopic(topic.getText());
+
             qz.setQuestions(qn);
             qc.manageQuiz(qz);
             topic.clear();
             clearScene();
-
             setRoot("Summary");
         }
 
@@ -188,6 +155,11 @@ public class CreateController extends Main {
         correctAnswer.clear();
         inputQuestion.clear();
         imageView.setImage(null);
+    }
+
+    @FXML
+    void onClickHome(ActionEvent event) throws IOException {
+        setRoot("Main");
     }
 
     public static String getQuizID() {
