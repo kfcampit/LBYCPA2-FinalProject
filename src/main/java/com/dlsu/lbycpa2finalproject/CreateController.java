@@ -120,6 +120,7 @@ public class CreateController extends Main {
 
     @FXML
     void onClickSubmit(ActionEvent event) throws IOException {
+        quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
         QuestionObject temp = new QuestionObject();
         boolean hasRepeat = false; /* Flag para malaman kung kelan ib-break yung loop pag may similar choices */
         boolean canProceed = false; /* Kung pwede na iadd yung question */
@@ -154,8 +155,6 @@ public class CreateController extends Main {
             }
             if(hasRepeat) break;
         }
-
-        quizID = String.format("%04d", id) + "-" + topic.getText().replaceAll(" ", "-").toLowerCase();
 
         if(canProceed) {
             try {
