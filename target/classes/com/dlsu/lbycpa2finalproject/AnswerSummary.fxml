@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.AnswerSummaryController">
+   <children>
+      <ImageView fitHeight="689.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Quiztify_answersummary.gif" />
+         </image></ImageView>
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="199.0" layoutY="333.0" prefHeight="104.0" prefWidth="245.0" text="congratulations! you got" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="BebasNeue" size="37.0" />
+         </font>
+      </Label>
+      <Button layoutX="283.0" layoutY="539.0" mnemonicParsing="false" onAction="#onClickHome" stylesheets="@submit_button.css" text="home" />
+      <Label fx:id="finalScore" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="422.0" prefHeight="68.0" prefWidth="134.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="BebasNeue" size="61.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
