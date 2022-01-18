@@ -7,10 +7,7 @@
 
 <AnchorPane prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.AnswerSummaryController">
    <children>
-      <ImageView fx:id="bg" fitHeight="689.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Quiztify_pass.gif" />
-         </image></ImageView>
+      <ImageView fx:id="bg" fitHeight="689.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="283.0" layoutY="539.0" mnemonicParsing="false" onAction="#onClickHome" stylesheets="@submit_button.css" text="home" />
       <Label fx:id="finalScore" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="422.0" prefHeight="68.0" prefWidth="134.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>

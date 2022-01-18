@@ -7,8 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
@@ -26,12 +30,14 @@ public class AnswerSummaryController extends AnswerController {
         try {
             if (currentScore < (MAX_LENGTH/2.0)) {
                 System.out.println("FAIL");
-                bg.setImage(new Image("Quiztify_fail.gif"));
+                Image image = new Image ("file:src/main/resources/com/dlsu/lbycpa2finalproject/Quiztify_fail.gif");
+                bg.setImage(image);
                 fail_message.setVisible(true);
             }
             else {
                 System.out.println("PASS");
-                bg.setImage(new Image("Quiztify_pass.gif"));
+                Image image = new Image ("file:src/main/resources/com/dlsu/lbycpa2finalproject/Quiztify_pass.gif");
+                bg.setImage(image);
                 pass_message.setVisible(true);
             }
             finalScore.setText(String.valueOf(currentScore));
