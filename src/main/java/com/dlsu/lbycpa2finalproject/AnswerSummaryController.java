@@ -24,12 +24,14 @@ public class AnswerSummaryController extends AnswerController {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            if (currentScore < (MAX_LENGTH/2)) {
-                //bg.setImage(new Image("Quiztify_fail.gif"));
+            if (currentScore < (MAX_LENGTH/2.0)) {
+                System.out.println("FAIL");
+                bg.setImage(new Image("Quiztify_fail.gif"));
                 fail_message.setVisible(true);
             }
-            if (currentScore > (MAX_LENGTH/2)) {
-                //bg.setImage(new Image("Quiztify_pass.gif"));
+            else {
+                System.out.println("PASS");
+                bg.setImage(new Image("Quiztify_pass.gif"));
                 pass_message.setVisible(true);
             }
             finalScore.setText(String.valueOf(currentScore));

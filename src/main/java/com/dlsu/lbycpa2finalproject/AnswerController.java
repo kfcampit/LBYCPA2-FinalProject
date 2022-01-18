@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 public class AnswerController extends QuizListController implements Initializable {
     QuizObject qz;
     public int item = 0;
-    public float MAX_LENGTH;
+    public static float MAX_LENGTH;
     public static float currentScore = 0;
 
     @FXML
@@ -200,7 +200,6 @@ public class AnswerController extends QuizListController implements Initializabl
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             qz = qc.getQuiz(clickedId);
-            System.out.println(qz.getNumberQuestions());
             userQuestion.setText(qz.getQuestionList().get(0).getQuestion());
             topic.setText(qz.getTopic());
             String[] choices = qz.getQuestionList().get(0).getChoices();
