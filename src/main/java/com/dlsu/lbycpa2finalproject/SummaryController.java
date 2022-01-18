@@ -110,7 +110,7 @@ public class SummaryController extends CreateController implements Initializable
             imageView.setImage(new Image(qz.getQuestionList().get(questionNum).getImageURL()));
             centerImage();
         } catch (Exception ignore) {
-
+            imageView.setImage(null);
         }
 
         MAX_LENGTH = qz.getNumberQuestions();
