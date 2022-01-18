@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.EditQuizListController">
+    <children>
+        <ImageView fx:id="del1" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="193.0" onMouseClicked="#onClickDelete1" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@delete.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="del2" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="273.0" onMouseClicked="#onClickDelete2" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@delete.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="del3" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="352.0" onMouseClicked="#onClickDelete3" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@delete.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="del4" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="429.0" onMouseClicked="#onClickDelete4" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@delete.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="del5" fitHeight="48.0" fitWidth="48.0" layoutX="534.0" layoutY="510.0" onMouseClicked="#onClickDelete5" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@delete.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="699.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Quiztify_topics.png" />
+            </image></ImageView>
+        <Button fx:id="home" layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickHome" prefHeight="46.0" prefWidth="91.0" stylesheets="@back_button.css" text="Home" />
+        <Label fx:id="topic1" layoutX="136.0" layoutY="201.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+        <Label fx:id="topic2" layoutX="136.0" layoutY="280.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+        <Label fx:id="topic3" layoutX="136.0" layoutY="359.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+        <Label fx:id="topic4" layoutX="136.0" layoutY="437.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+        <Label fx:id="topic5" layoutX="136.0" layoutY="517.0" prefHeight="31.0" prefWidth="386.0" textAlignment="CENTER" />
+        <Button layoutX="56.0" layoutY="577.0" mnemonicParsing="false" onAction="#onClickPrev" prefHeight="44.0" prefWidth="109.0" stylesheets="@back_button.css" text="Previous" />
+        <Button layoutX="483.0" layoutY="577.0" mnemonicParsing="false" onAction="#onClickNext" prefHeight="44.0" prefWidth="109.0" stylesheets="@submit_button.css" text="Next" />
+        <Button fx:id="edit1" layoutX="514.0" layoutY="193.0" mnemonicParsing="false" onAction="#onClickEdit1" stylesheets="@submit_button.css" text="Edit" />
+        <Button fx:id="edit2" layoutX="514.0" layoutY="272.0" mnemonicParsing="false" onAction="#onClickEdit2" stylesheets="@submit_button.css" text="edit" />
+        <Button fx:id="edit3" layoutX="514.0" layoutY="351.0" mnemonicParsing="false" onAction="#onClickEdit3" stylesheets="@submit_button.css" text="edit" />
+        <Button fx:id="edit4" layoutX="514.0" layoutY="429.0" mnemonicParsing="false" onAction="#onClickEdit4" stylesheets="@submit_button.css" text="edit" />
+        <Button fx:id="edit5" layoutX="514.0" layoutY="509.0" mnemonicParsing="false" onAction="#onClickEdit5" stylesheets="@submit_button.css" text="edit" />
+        <Button layoutX="522.0" layoutY="31.0" mnemonicParsing="false" onAction="#onConvertEdit" prefHeight="46.0" prefWidth="91.0" stylesheets="@submit_button.css" text="Edit" />
+        <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="436.0" layoutY="18.0" onMouseClicked="#onConvertDelete" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@red_trash_can.png" />
+            </image>
+        </ImageView>
+
+    </children>
+</AnchorPane>

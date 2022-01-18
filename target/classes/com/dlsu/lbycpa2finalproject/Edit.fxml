@@ -49,14 +49,5 @@
                 <Font name="BebasNeue" size="12.0" />
             </font>
         </Button>
-      <TextField fx:id="qID" layoutX="190.0" layoutY="63.0" prefHeight="40.0" prefWidth="179.0" promptText="Question ID" style="-fx-background-color: #EBE0CF;">
-         <font>
-            <Font name="BebasNeue" size="15.0" />
-         </font></TextField>
-      <Button fx:id="search" layoutX="373.0" layoutY="63.0" mnemonicParsing="false" onAction="#onClickSearch" prefHeight="31.0" prefWidth="98.0" stylesheets="@search_button.css" text="Search" textFill="WHITE">
-         <font>
-            <Font name="BebasNeue" size="15.0" />
-         </font>
-      </Button>
     </children>
 </AnchorPane>

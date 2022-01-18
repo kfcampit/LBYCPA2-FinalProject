@@ -25,7 +25,7 @@ public class MainController extends Main{
     @FXML
     void onClickEditQuiz(ActionEvent event) throws IOException {
 //        System.out.println("Delete");
-        setRoot("Edit");
+        setRoot("EditQuizList");
     }
     @FXML
     void onClickLeaderboards(ActionEvent event) throws IOException {
