@@ -67,6 +67,7 @@ public class CreateController extends Main {
         String[] choices = {choice1.getText(), choice2.getText(), choice3.getText(), choice4.getText()};
 
         if (checkValidity(choices)) {
+
             temp.setChoices(choices);
             temp.setQuestion(inputQuestion.getText());
             temp.setPointWeight(1);
@@ -110,6 +111,8 @@ public class CreateController extends Main {
                         return false;
                     }
                 }
+                temp.setAnswer(i);
+                return true;
             }
         }
         return true;
