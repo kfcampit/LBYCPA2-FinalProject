@@ -50,7 +50,9 @@ public class AnswerController extends QuizListController implements Initializabl
             try {
                 imageView.setImage(new Image(qz.getQuestionList().get(item).getImageURL()));
                 centerImage();
-            } catch (Exception ignore) {}
+            } catch (Exception e) {
+                imageView.setImage(null);
+            }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }

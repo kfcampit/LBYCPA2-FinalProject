@@ -127,7 +127,13 @@ public class EditController extends EditQuizListController implements Initializa
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png"));
         selectedFile = fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
 
-        imageView.setImage(new Image(selectedFile.toURI().toString()));
+        try {
+            imageView.setImage(new Image(selectedFile.toURI().toString()));
+        } catch (Exception ignore) {
+        }
+
+
+
         centerImage();
 
         System.out.println("addImage");
@@ -255,5 +261,12 @@ public class EditController extends EditQuizListController implements Initializa
             imageView.setY((imageView.getFitHeight() - h) / 2);
 
         }
+    }
+
+    public void onRemoveImage(MouseEvent mouseEvent) {
+        qn.get(qNumber).setImageURL("");
+        imageView.setImage(null);
+        selectedFile = null;
+
     }
 }

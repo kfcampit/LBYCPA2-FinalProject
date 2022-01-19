@@ -169,12 +169,16 @@ public class CreateController extends Main {
         return quizID;
     }
 
-    public void onAddImage(MouseEvent mouseEvent) {
+    public void onAddImage(MouseEvent mouseEvent) throws Exception{
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png"));
         selectedFile = fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
 
-        imageView.setImage(new Image(selectedFile.toURI().toString()));
+        try {
+            imageView.setImage(new Image(selectedFile.toURI().toString()));
+        } catch (Exception e) {
+        }
+
         centerImage();
 
         System.out.println("addImage");
@@ -203,5 +207,10 @@ public class CreateController extends Main {
             imageView.setY((imageView.getFitHeight() - h) / 2);
 
         }
+    }
+
+    public void onRemoveImage(MouseEvent mouseEvent) {
+        imageView.setImage(null);
+        selectedFile = null;
     }
 }
