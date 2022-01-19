@@ -183,7 +183,6 @@ public class EditQuizListController extends Main implements Initializable {
         int temp = topicNumber; /* Pangcheck lang to for error */
         temp -= 10;
         if(temp < 0){
-            //System.out.println("ERROR! This is the First Set of Quizzes");
             alert.setAlertType(Alert.AlertType.WARNING);
             alert.setContentText("This is the Last Set of Quizzes.");
             alert.show();
@@ -197,7 +196,6 @@ public class EditQuizListController extends Main implements Initializable {
     @FXML
     void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException {
         if(topicNumber > keyList.size()){
-            //System.out.println("ERROR! This is the Last Set of Quizzes");
             alert.setAlertType(Alert.AlertType.WARNING);
             alert.setContentText("This is the Last Set of Quizzes.");
             alert.show();
