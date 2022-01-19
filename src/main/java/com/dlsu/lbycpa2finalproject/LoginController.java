@@ -42,12 +42,13 @@ public class LoginController extends Main {
         }
         if (ac.checkDetails(username.getText(), pass, true) == 1) {
             System.out.println("Login Successful!");
+            setRoot("Main");
         } else {
             errorText.setText("Wrong username or password");
             errorText.setVisible(true);
             password_text.clear();
+            password_hidden.clear();
         }
-        setRoot("Main");
     }
 
     @FXML

@@ -10,9 +10,9 @@
          <image>
             <Image url="@Quiztify_menu.png" />
          </image></ImageView>
-      <Button fx:id="AddQuiz" layoutX="228.0" layoutY="345.0" mnemonicParsing="false" onAction="#onClickAddQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@button.css" text="Add Quiz" />
-      <Button fx:id="LoadQuiz" layoutX="228.0" layoutY="403.0" mnemonicParsing="false" onAction="#onClickLoadQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@button.css" text="Load Quiz" />
-      <Button fx:id="EditQuiz" layoutX="228.0" layoutY="460.0" mnemonicParsing="false" onAction="#onClickEditQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@button.css" text="Edit Quiz" />
-      <Button fx:id="Leaderboards" layoutX="229.0" layoutY="518.0" mnemonicParsing="false" onAction="#onClickLeaderboards" stylesheets="@button.css" text="Leaderboards" />
+      <Button fx:id="AddQuiz" layoutX="228.0" layoutY="345.0" mnemonicParsing="false" onAction="#onClickAddQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@submit_button.css" text="Add Quiz" />
+      <Button fx:id="LoadQuiz" layoutX="228.0" layoutY="403.0" mnemonicParsing="false" onAction="#onClickLoadQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@submit_button.css" text="Load Quiz" />
+      <Button fx:id="EditQuiz" layoutX="228.0" layoutY="461.0" mnemonicParsing="false" onAction="#onClickEditQuiz" prefHeight="49.0" prefWidth="186.0" stylesheets="@submit_button.css" text="Edit Quiz" />
+      <Button fx:id="Leaderboards" layoutX="229.0" layoutY="519.0" mnemonicParsing="false" onAction="#onClickLeaderboards" prefHeight="49.0" prefWidth="186.0" stylesheets="@submit_button.css" text="Leaderboards" />
    </children>
 </AnchorPane>

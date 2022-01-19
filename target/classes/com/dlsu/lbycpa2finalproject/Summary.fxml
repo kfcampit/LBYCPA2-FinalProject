@@ -7,11 +7,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.SummaryController">
     <children>
-      <Label fx:id="errorPrev" layoutX="29.0" layoutY="73.0" prefHeight="30.0" prefWidth="238.0" text="ERROR! This is the First Question" textFill="RED">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
         <ImageView fitHeight="699.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@Quiztify_summary.png" />
@@ -20,7 +15,7 @@
             <font>
                 <Font name="BebasNeue" size="16.0" />
             </font></TextField>
-        <TextArea fx:id="displayQuestion" blendMode="MULTIPLY" layoutX="43.0" layoutY="170.0" prefHeight="73.0" prefWidth="556.0" promptText="Type your question here..." scrollTop="10.0" style="-fx-background-color: #EBE0CF;" wrapText="true">
+        <TextArea fx:id="displayQuestion" blendMode="MULTIPLY" layoutX="43.0" layoutY="170.0" prefHeight="73.0" prefWidth="556.0" scrollTop="10.0" style="-fx-background-color: #EBE0CF;" wrapText="true">
             <font>
                 <Font name="BebasNeue" size="16.0" />
             </font></TextArea>
@@ -44,7 +39,7 @@
                 <Font name="BebasNeue" size="16.0" />
             </font>
         </TextField>
-        <Button layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickHome" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="home">
+        <Button layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickHome" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="Home">
             <font>
                 <Font name="BebasNeue" size="12.0" />
             </font>

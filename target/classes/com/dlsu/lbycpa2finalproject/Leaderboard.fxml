@@ -15,7 +15,7 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-        <Button fx:id="home" layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="home" />
+        <Button fx:id="home" layoutX="31.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="44.0" prefWidth="81.0" stylesheets="@back_button.css" text="Home" />
       <Label fx:id="score1" layoutX="136.0" layoutY="214.0" prefHeight="31.0" prefWidth="456.0" textAlignment="CENTER" textFill="#475da7">
          <font>
             <Font size="14.0" />

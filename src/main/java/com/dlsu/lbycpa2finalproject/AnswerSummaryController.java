@@ -54,13 +54,11 @@ public class AnswerSummaryController extends AnswerController {
 
         try {
             if (currentScore < (MAX_LENGTH/2.0)) {
-                System.out.println("FAIL");
                 Image image = new Image ("file:src/main/resources/com/dlsu/lbycpa2finalproject/Quiztify_fail.gif");
                 bg.setImage(image);
                 fail_message.setVisible(true);
             }
             else {
-                System.out.println("PASS");
                 Image image = new Image ("file:src/main/resources/com/dlsu/lbycpa2finalproject/Quiztify_pass.gif");
                 bg.setImage(image);
                 pass_message.setVisible(true);

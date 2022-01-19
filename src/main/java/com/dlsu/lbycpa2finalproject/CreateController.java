@@ -72,7 +72,6 @@ public class CreateController extends Main {
             temp.setQuestion(inputQuestion.getText());
             temp.setPointWeight(1);
 
-            //System.out.println("ImageView: " + imageView.getImage().getUrl().replaceAll("file:/", "").replaceAll("/", "\\"));
             System.out.println("Selected File: " + selectedFile);
 
             try {
@@ -98,7 +97,6 @@ public class CreateController extends Main {
             alert.setContentText("Correct Answer Not in Choices.");
             alert.show();
             return false;
-            //errorMsg.toFront();
         }
 
         for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */

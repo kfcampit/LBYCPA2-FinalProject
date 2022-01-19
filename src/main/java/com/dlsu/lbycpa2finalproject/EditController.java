@@ -112,7 +112,6 @@ public class EditController extends EditQuizListController implements Initializa
 
         qNumber--;
         if(qNumber<0) {
-            //errorPrev.toFront();
             Alert alert = new Alert (Alert.AlertType.NONE);
             alert.setAlertType(Alert.AlertType.INFORMATION);
             alert.setContentText("ERROR! This is the First Question.");
@@ -129,14 +128,9 @@ public class EditController extends EditQuizListController implements Initializa
 
         try {
             imageView.setImage(new Image(selectedFile.toURI().toString()));
-        } catch (Exception ignore) {
+        } catch (Exception ignore){
         }
-
-
-
         centerImage();
-
-        System.out.println("addImage");
     }
 
     @Override
@@ -218,7 +212,6 @@ public class EditController extends EditQuizListController implements Initializa
             alert.setContentText("Correct Answer Not in Choices.");
             alert.show();
             return false;
-            //errorMsg.toFront();
         }
 
         for (int i = 0; i < choices.length; i++) { /* Iterate sa choices var and ich-check if equal sa value ng correctAnswer var */
