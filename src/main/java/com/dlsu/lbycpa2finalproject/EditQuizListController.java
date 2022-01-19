@@ -194,7 +194,7 @@ public class EditQuizListController extends Main implements Initializable {
     }
 
     @FXML
-    void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException {
+    void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException, IOException {
         if(topicNumber > keyList.size()){
             alert.setAlertType(Alert.AlertType.WARNING);
             alert.setContentText("This is the Last Set of Quizzes.");
