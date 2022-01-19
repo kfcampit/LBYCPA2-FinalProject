@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,9 @@ import java.util.concurrent.ExecutionException;
 public class EditController extends EditQuizListController implements Initializable {
     QuizObject qz;
     int qNumber = 0; /* question number */
+
+    @FXML
+    private ImageView imageView;
 
     @FXML
     private Label topic;
@@ -80,20 +84,20 @@ public class EditController extends EditQuizListController implements Initializa
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             qz = qc.getQuiz(clickedId);
-            topic.setText(qz.getTopic());
-            inputQuestion.setText(qz.getQuestionList().get(0).getQuestion());
-            choice1.setText(qz.getQuestionList().get(0).getChoices()[0]);
-            choice2.setText(qz.getQuestionList().get(0).getChoices()[1]);
-            choice3.setText(qz.getQuestionList().get(0).getChoices()[2]);
-            choice4.setText(qz.getQuestionList().get(0).getChoices()[3]);
-            int ansIndex = qz.getQuestionList().get(0).getAnswer();
-            correctAnswer.setText(qz.getQuestionList().get(0).getChoices()[ansIndex]);
-            try {
-                imageView.setImage(new Image(qz.getQuestionList().get(0).getImageURL()));
-                centerImage();
-            } catch (Exception ignore) {
-
-            }
+//            topic.setText(qz.getTopic());
+//            inputQuestion.setText(qz.getQuestionList().get(0).getQuestion());
+//            choice1.setText(qz.getQuestionList().get(0).getChoices()[0]);
+//            choice2.setText(qz.getQuestionList().get(0).getChoices()[1]);
+//            choice3.setText(qz.getQuestionList().get(0).getChoices()[2]);
+//            choice4.setText(qz.getQuestionList().get(0).getChoices()[3]);
+//            int ansIndex = qz.getQuestionList().get(0).getAnswer();
+//            correctAnswer.setText(qz.getQuestionList().get(0).getChoices()[ansIndex]);
+//            try {
+//                imageView.setImage(new Image(qz.getQuestionList().get(0).getImageURL()));
+//                centerImage();
+//            } catch (Exception ignore) {
+//
+//            }
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
