@@ -4,13 +4,17 @@ import com.dlsu.lbycpa2finalproject.backend.QuizObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collections;
@@ -20,13 +24,14 @@ import java.util.concurrent.ExecutionException;
 
 public class EditController extends EditQuizListController implements Initializable {
     QuizObject qz;
+    File selectedFile;
     int qNumber = 0; /* question number */
 
     @FXML
     private ImageView imageView;
 
     @FXML
-    private Label topic;
+    private TextArea topic;
 
     @FXML
     private TextField choice1;
@@ -66,7 +71,6 @@ public class EditController extends EditQuizListController implements Initializa
 
     @FXML
     void onClickHome(ActionEvent event) throws IOException {
-        //System.out.println("back");
         setRoot("Main");
     }
 
@@ -77,8 +81,20 @@ public class EditController extends EditQuizListController implements Initializa
 
     @FXML
     void onClickPrev(ActionEvent event) {
-
+        System.out.println("prev");
     }
+
+    public void onAddImage(MouseEvent mouseEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png"));
+        selectedFile = fileChooser.showOpenDialog(((Node) mouseEvent.getSource()).getScene().getWindow());
+
+        imageView.setImage(new Image(selectedFile.toURI().toString()));
+        centerImage();
+
+        System.out.println("addImage");
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
