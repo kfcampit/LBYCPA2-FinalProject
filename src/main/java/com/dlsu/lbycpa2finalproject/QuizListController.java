@@ -185,7 +185,7 @@ public class QuizListController extends Main implements Initializable {
         if(temp < 0){
             //System.out.println("ERROR! This is the First Set of Quizzes");
             alert.setAlertType(Alert.AlertType.WARNING);
-            alert.setContentText("This is the Last Set of Quizzes.");
+            alert.setContentText("This is the First Set of Quizzes.");
             alert.show();
             return;
         }

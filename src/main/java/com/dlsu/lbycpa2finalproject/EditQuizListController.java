@@ -184,7 +184,7 @@ public class EditQuizListController extends Main implements Initializable {
         temp -= 10;
         if(temp < 0){
             alert.setAlertType(Alert.AlertType.WARNING);
-            alert.setContentText("This is the Last Set of Quizzes.");
+            alert.setContentText("This is the First Set of Quizzes.");
             alert.show();
             return;
         }
