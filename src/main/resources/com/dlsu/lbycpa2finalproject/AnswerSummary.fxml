@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="689.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dlsu.lbycpa2finalproject.AnswerSummaryController">
    <children>
       <ImageView fx:id="bg" fitHeight="689.0" fitWidth="643.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="283.0" layoutY="539.0" mnemonicParsing="false" onAction="#onClickHome" stylesheets="@submit_button.css" text="home" />
+      <Button layoutX="283.0" layoutY="539.0" mnemonicParsing="false" onAction="#onClickHome" stylesheets="@submit_button.css" text="Home" />
       <Label fx:id="finalScore" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="255.0" layoutY="422.0" prefHeight="68.0" prefWidth="134.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="BebasNeue" size="61.0" />
@@ -19,7 +19,7 @@
             <Font name="BebasNeue" size="37.0" />
          </font>
       </Label>
-      <Label fx:id="pass_message" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="199.0" layoutY="333.0" prefHeight="104.0" prefWidth="245.0" text="congratulations! you got" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
+      <Label fx:id="pass_message" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="199.0" layoutY="333.0" prefHeight="104.0" prefWidth="245.0" text="Congratulations! You got" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
          <font>
             <Font name="BebasNeue" size="37.0" />
          </font>

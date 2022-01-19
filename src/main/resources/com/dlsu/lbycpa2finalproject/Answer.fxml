@@ -12,7 +12,7 @@
             <image>
                 <Image url="@Quiztify_answer.png" />
             </image></ImageView>
-      <Button fx:id="redOption" layoutX="61.0" layoutY="495.0" mnemonicParsing="false" onAction="#onClickRedOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@red_button.css" text="Button" textFill="WHITE" wrapText="true">
+      <Button fx:id="redOption" layoutX="61.0" layoutY="495.0" mnemonicParsing="false" onAction="#onClickRedOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@red_button.css" textFill="WHITE" wrapText="true">
          <effect>
             <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
                <bumpInput>
@@ -26,7 +26,7 @@
          <font>
             <Font name="BebasNeue" size="21.0" />
          </font></Button>
-      <Button fx:id="blueOption" layoutX="327.0" layoutY="495.0" mnemonicParsing="false" onAction="#onClickBlueOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@blue_button.css" text="Button" textFill="WHITE" wrapText="true">
+      <Button fx:id="blueOption" layoutX="327.0" layoutY="495.0" mnemonicParsing="false" onAction="#onClickBlueOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@blue_button.css" textFill="WHITE" wrapText="true">
          <effect>
             <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
                <bumpInput>
@@ -41,7 +41,7 @@
             <Font name="BebasNeue" size="21.0" />
          </font>
       </Button>
-      <Button fx:id="yellowOption" layoutX="61.0" layoutY="566.0" mnemonicParsing="false" onAction="#onClickYellowOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@orange_button.css" text="Button" textFill="WHITE" wrapText="true">
+      <Button fx:id="yellowOption" layoutX="61.0" layoutY="566.0" mnemonicParsing="false" onAction="#onClickYellowOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@orange_button.css" textFill="WHITE" wrapText="true">
          <effect>
             <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
                <bumpInput>
@@ -56,7 +56,7 @@
             <Font name="BebasNeue" size="21.0" />
          </font>
       </Button>
-      <Button fx:id="greenOption" layoutX="327.0" layoutY="566.0" mnemonicParsing="false" onAction="#onClickGreenOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@green_button.css" text="Button" textFill="WHITE" wrapText="true">
+      <Button fx:id="greenOption" layoutX="327.0" layoutY="566.0" mnemonicParsing="false" onAction="#onClickGreenOption" prefHeight="61.0" prefWidth="256.0" stylesheets="@green_button.css" textFill="WHITE" wrapText="true">
          <effect>
             <Lighting diffuseConstant="0.98" specularConstant="0.6" specularExponent="40.0" surfaceScale="10.0">
                <bumpInput>
@@ -81,7 +81,7 @@
             <Font size="15.0" />
          </font></Label>
       <ImageView fx:id="imageView" fitHeight="195.0" fitWidth="556.0" layoutX="43.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
-        <Button layoutX="272.0" layoutY="61.0" mnemonicParsing="false" onAction="#onClickQuit" prefHeight="2.0" prefWidth="98.0" stylesheets="@back_button.css" text="quit">
+        <Button layoutX="272.0" layoutY="61.0" mnemonicParsing="false" onAction="#onClickQuit" prefHeight="2.0" prefWidth="98.0" stylesheets="@back_button.css" text="Quit">
             <font>
                 <Font name="BebasNeue" size="12.0" />
             </font>
