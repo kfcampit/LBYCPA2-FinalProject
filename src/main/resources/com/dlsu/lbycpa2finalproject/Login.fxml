@@ -12,7 +12,7 @@
             <Image url="@Quiztify_login.png" />
          </image></ImageView>
       <TextField fx:id="username" layoutX="202.0" layoutY="265.0" prefHeight="25.0" prefWidth="317.0" style="-fx-background-color: #EBE0CF;" />
-      <TextField fx:id="password_text" layoutX="202.0" layoutY="313.0" prefHeight="25.0" prefWidth="240.0" style="-fx-background-color: #EBE0CF;" />
+      <TextField fx:id="password_text" layoutX="202.0" layoutY="313.0" prefHeight="25.0" prefWidth="317.0" style="-fx-background-color: #EBE0CF;" />
       <PasswordField fx:id="password_hidden" layoutX="202.0" layoutY="313.0" prefHeight="25.0" prefWidth="317.0" style="-fx-background-color: #EBE0CF;" />
       <Button fx:id="registerButton" layoutX="202.0" layoutY="379.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" stylesheets="@submit_button.css" text="Register" />
       <CheckBox fx:id="showPassword" layoutX="202.0" layoutY="345.0" mnemonicParsing="false" onAction="#togglevisiblePassword" text="Show Password" textFill="WHITE" />
