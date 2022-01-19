@@ -23,6 +23,7 @@ public class EditController extends EditQuizListController implements Initializa
     QuizObject qz;
     QuestionObject temp;
     List<QuestionObject> qn = new ArrayList<>();
+
     ImageController ic = new ImageController();
     File selectedFile;
     int qNumber = 0; /* question number */
@@ -67,9 +68,6 @@ public class EditController extends EditQuizListController implements Initializa
     private Button search;
     private int MAX_LENGTH;
 
-    public EditController() throws ExecutionException, InterruptedException {
-    }
-
     @FXML
     void onClickHome(ActionEvent event) throws IOException {
         setRoot("Main");
@@ -77,9 +75,12 @@ public class EditController extends EditQuizListController implements Initializa
 
     @FXML
     void onClickNext(ActionEvent event) throws ExecutionException, InterruptedException, IOException {
+        temp = new QuestionObject();
+        imageView.setImage(null);
+
         if (getInfo()) {
-            qn.add(temp);
-            saveEdit(qNumber);
+            qn.set(qNumber, temp);
+            qz.setQuestions(qn);
             if (!Objects.equals(topic.getText(), ""))
                 qz.setTopic(topic.getText());
         }
@@ -91,13 +92,24 @@ public class EditController extends EditQuizListController implements Initializa
             displayQuestion(qNumber);
         }
         else if(qNumber >= MAX_LENGTH){
+            qc.manageQuiz(qz);
             setRoot("Main");
         }
     }
 
     @FXML
     void onClickPrev(ActionEvent event) throws ExecutionException, InterruptedException {
+        temp = new QuestionObject();
+        imageView.setImage(null);
         next.setText("Next");
+
+        if (getInfo()) {
+            qn.set(qNumber, temp);
+            qz.setQuestions(qn);
+            if (!Objects.equals(topic.getText(), ""))
+                qz.setTopic(topic.getText());
+        }
+
         qNumber--;
         if(qNumber<0) {
             //errorPrev.toFront();
@@ -124,6 +136,8 @@ public class EditController extends EditQuizListController implements Initializa
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            qz = qc.getQuiz(clickedId);
+            qn = qz.getQuestionList();
             displayQuestion(qNumber);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -131,7 +145,6 @@ public class EditController extends EditQuizListController implements Initializa
     }
 
     void displayQuestion(int questionNumber) throws ExecutionException, InterruptedException {
-        qz = qc.getQuiz(clickedId);
         topic.setText(qz.getTopic());
         inputQuestion.setText(qz.getQuestionList().get(questionNumber).getQuestion());
         choice1.setText(qz.getQuestionList().get(questionNumber).getChoices()[0]);
@@ -149,6 +162,7 @@ public class EditController extends EditQuizListController implements Initializa
         MAX_LENGTH = qz.getNumberQuestions();
     }
 
+    /*
     void saveEdit(int questionNumber){
         qz.getQuestionList().get(questionNumber).setQuestion(temp.getQuestion());
         qz.getQuestionList().get(questionNumber).setChoices(temp.getChoices());
@@ -156,6 +170,7 @@ public class EditController extends EditQuizListController implements Initializa
         qz.getQuestionList().get(questionNumber).setPointWeight(temp.getPointWeight());
         qz.getQuestionList().get(questionNumber).setImageURL(temp.getImageURL());
     }
+     */
 
     public boolean getInfo() {
         temp = new QuestionObject();
@@ -167,14 +182,14 @@ public class EditController extends EditQuizListController implements Initializa
             temp.setQuestion(inputQuestion.getText());
             temp.setPointWeight(1);
 
-            //System.out.println("ImageView: " + imageView.getImage().getUrl().replaceAll("file:/", "").replaceAll("/", "\\"));
             System.out.println("Selected File: " + selectedFile);
 
             try {
-                ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qn.size() + 1));
-                temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qn.size() + 1)));
+                ic.saveImage(selectedFile, getQuizID() + "-q" + String.format("%04d", qNumber + 1));
+                temp.setImageURL(ic.loadImageURL(getQuizID() + "-q" + String.format("%04d", qNumber + 1)));
             } catch (RuntimeException | IOException e) {
-                temp.setImageURL("");
+                if (!Objects.equals(qn.get(qNumber).getImageURL(), "")) temp.setImageURL(qn.get(qNumber).getImageURL());
+                else temp.setImageURL("");
             }
 
             selectedFile = null;
